@@ -15,11 +15,12 @@ const config: Config = {
       },
       colors: {
         palette: {
-          primary: "red",
+          // primary: "red",
         },
       },
     },
   },
   plugins: [],
+  darkMode: "class",
 };
 export default config;

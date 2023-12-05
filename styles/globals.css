@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: 255, 255, 255;
+  --color-base: 66, 71, 80;
+
+  --font-family: Vazirmatn;
+}
+
+.dark {
+  --bg: 15, 23, 42;
+  --color-base: 226, 232, 240;
+}
+
+html[dir="ltr"] {
+  --font-family: "Poppins", "Roboto", "sans-serif";
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,7 +25,9 @@
   box-sizing: border-box;
 }
 body {
-  font-family: Vazirmatn, sans-serif;
+  font-family: var(--font-family);
+  color: rgb(var(--color-base));
+  background-color: rgb(var(--bg));
 }
 
 ::placeholder {
