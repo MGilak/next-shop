@@ -1,0 +1,40 @@
+.main-slider .swiper-slide {
+  overflow: hidden;
+  border-radius: 10px !important;
+  height: 400px;
+}
+.main-slider.mySwiper {
+  border-radius: 20px !important;
+}
+.main-slider .swiper-button-prev:after,
+.main-slider .swiper-button-next:after {
+  color: #fff;
+}
+.main-slider img {
+  /* object-fit: cover; */
+  height: 100%;
+}
+
+/* sugesstion slider */
+.suggestSlider .swiper-slide {
+  width: 200px !important;
+  height: 270px;
+}
+.suggestSlider .swiper-pagination {
+  display: none;
+}
+.suggestSlider .swiper-button-prev:after,
+.suggestSlider .swiper-button-next:after {
+  color: #000;
+  font-size: 30px;
+  font-weight: bolder;
+}
+.suggestSlider {
+  border-radius: 20px !important;
+  background: linear-gradient(to top, #2babc4, #1693c0);
+  height: 300px;
+}
+.suggestSlider .swiper-wrapper {
+  align-items: center;
+  margin: 0 auto;
+}
