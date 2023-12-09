@@ -11,8 +11,9 @@
   color: #fff;
 }
 .main-slider img {
-  /* object-fit: cover; */
+  object-fit: cover;
   height: 100%;
+  user-select: none;
 }
 
 /* sugesstion slider */

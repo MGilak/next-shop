@@ -46,7 +46,7 @@ const Header = () => {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 16 16"
                 style={{ color: "rgb(156 163 175)" }}
                 height="1em"
@@ -54,7 +54,7 @@ const Header = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"
                 ></path>
               </svg>
@@ -76,7 +76,7 @@ const Header = () => {
               <svg
                 stroke="currentColor"
                 fill="none"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 24 24"
                 height="1em"
                 width="1em"
@@ -84,9 +84,9 @@ const Header = () => {
                 style={{ fontSize: "1.6rem" }}
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                 ></path>
               </svg>
@@ -108,7 +108,7 @@ const Header = () => {
               <svg
                 stroke="currentColor"
                 fill="currentColor"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 1024 1024"
                 style={{ fontSize: "1.6rem" }}
                 height="1em"
@@ -128,7 +128,7 @@ const Header = () => {
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 24 24"
               height="1em"
               width="1em"
@@ -150,7 +150,7 @@ const Header = () => {
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 8 16"
               style={{ fontSize: "2rem" }}
               height="1em"
@@ -158,7 +158,7 @@ const Header = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M8 4v1H0V4h8zM0 8h8V7H0v1zm0 3h8v-1H0v1z"
               ></path>
             </svg>

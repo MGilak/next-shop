@@ -17,6 +17,17 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/header/index.tsx", "components/main-slider/index.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/header/index.tsx",
+    "components/main-slider/index.jsx",
+    "components/Layout.jsx",
+    "pages/index.jsx",
+    "pages/_app.jsx",
+    "pages/headphones.jsx",
+    "components/suggestion/suggestItem.jsx"
+, "components/grouping/index.jsx"  ],
   "exclude": ["node_modules"]
 }

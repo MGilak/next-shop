@@ -20,7 +20,7 @@ const HeadphoneItem = () => {
             <span>
               <label
                 className="dv-star-rating-star dv-star-rating-full-star"
-                for="product_rate_xiaomi-redmi-note-11-128-gb-graphite-gray_3"
+                htmlFor="product_rate_xiaomi-redmi-note-11-128-gb-graphite-gray_3"
                 style={{
                   float: "right",
                   cursor: "pointer",

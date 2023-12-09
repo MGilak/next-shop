@@ -8,33 +8,31 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import SuggestItem from "./suggestItem";
 
-function Suggestion({ data }) {
-  console.log("dddd", data);
-
+export default function Slider({ data }) {
   return (
     <>
       <Swiper
-        loop={true}
-        slidesPerView={8}
-        spaceBetween={2}
+        spaceBetween={3}
         centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        loop={true}
         pagination={{
           clickable: true,
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper suggestSlider container  mt-12"
+        className="mySwiper main-slider container mx-auto mt-10"
       >
         {data.map((item) => (
           <SwiperSlide>
-            <SuggestItem data={item} />
+            <img className="w-full" src={item.url} alt="logo-header" />
           </SwiperSlide>
         ))}
       </Swiper>
     </>
   );
 }
-
-export default Suggestion;

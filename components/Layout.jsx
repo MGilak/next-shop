@@ -1,12 +1,8 @@
 import Head from "next/head";
 import Header from "./header";
+import Footer from "./footer";
 
-interface PropsType {
-  children: React.ReactNode;
-  title: String;
-}
-
-const Layout = ({ children, title }: PropsType) => {
+const Layout = ({ children, title }) => {
   return (
     <>
       <Head>
@@ -16,7 +12,7 @@ const Layout = ({ children, title }: PropsType) => {
       <div>
         <Header />
         <main>{children}</main>
-        <footer>footer</footer>
+        <Footer />
       </div>
     </>
   );
