@@ -21,13 +21,13 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/header/index.tsx",
+    "components/header/index.jsx",
     "components/main-slider/index.jsx",
     "components/Layout.jsx",
     "pages/index.jsx",
     "pages/_app.jsx",
     "pages/headphones/index.jsx",
     "components/suggestion/suggestItem.jsx"
-, "components/grouping/index.jsx", "components/headphoneItem/index.jsx"  ],
+, "components/grouping/index.jsx", "components/headphoneItem/index.jsx", "pages/headphones/[slug].jsx", "components/header/megaMenu/index.jsx"  ],
   "exclude": ["node_modules"]
 }

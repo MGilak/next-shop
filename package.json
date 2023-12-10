@@ -15,7 +15,8 @@
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/node": "^20",

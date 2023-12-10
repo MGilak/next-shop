@@ -1,6 +1,17 @@
+import { useRouter } from "next/navigation";
+
 const HeadphoneItem = ({ data }) => {
+  const router = useRouter();
+
+  const goToDetailsPage = () => {
+    router.push(`/headphones/${data.id}`);
+  };
+
   return (
-    <section className="flex items-center justify-between flex-col hover:shadow-xl my_transition shadow-md h-[380px] py-3 cursor-pointer">
+    <section
+      onClick={goToDetailsPage}
+      className="flex items-center justify-between flex-col hover:shadow-xl my_transition shadow-md h-[380px] py-3 cursor-pointer"
+    >
       <img className="w-2/3" src={data.path} alt="" />
       <h3 className="text-[13px] font-600">
         هدفون بلوتوثی کیو سی وای مدل T13 ANC

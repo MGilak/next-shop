@@ -31,7 +31,7 @@ const headphones = ({ data }) => {
 
         <section className="container mx-auto mt-14 grid grid-cols-5 gap-4">
           {data.map((item) => (
-            <HeadphoneItem data={item} />
+            <HeadphoneItem data={item} key={item.id} />
           ))}
         </section>
 
@@ -46,8 +46,6 @@ export default headphones;
 export async function getStaticProps() {
   const res = await fetch("http://localhost:4000/headphones");
   const data = await res.json();
-
-  // console.log("salam", data);
 
   return {
     props: {

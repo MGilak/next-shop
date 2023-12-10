@@ -1,6 +1,12 @@
 import Layout from "@/components/Layout";
+import useStore from "../../store/cart";
+import { useParams } from "next/navigation";
 
-const Headphone = () => {
+const Headphone = ({ data }) => {
+  const add = useStore((state) => state.addCart);
+  const params = useParams();
+  const headphone = data.find((item) => item.id === Number(params?.slug));
+
   return (
     <>
       <Layout title="محصول">
@@ -63,7 +69,10 @@ const Headphone = () => {
                 <span>تومان</span>
               </div>
 
-              <button className="bg-[#ed1c35] w-[90%] text-white rounded-lg  text-sm  py-2">
+              <button
+                onClick={() => add(headphone)}
+                className="bg-[#ed1c35] w-[90%] text-white rounded-lg  text-sm  py-2"
+              >
                 افزودن به سبد
               </button>
             </div>
@@ -75,3 +84,22 @@ const Headphone = () => {
 };
 
 export default Headphone;
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+};
+
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:4000/headphones");
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+    revalidate: 60 * 60 * 12,
+  };
+}
