@@ -1,11 +1,7 @@
-const HeadphoneItem = () => {
+const HeadphoneItem = ({ data }) => {
   return (
     <section className="flex items-center justify-between flex-col hover:shadow-xl my_transition shadow-md h-[380px] py-3 cursor-pointer">
-      <img
-        className="w-2/3"
-        src="https://dkstatics-public.digikala.com/digikala-products/24f2b572f9f1a75e4ad77d2ad37cf7096bfa9927_1683459327.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80"
-        alt=""
-      />
+      <img className="w-2/3" src={data.path} alt="" />
       <h3 className="text-[13px] font-600">
         هدفون بلوتوثی کیو سی وای مدل T13 ANC
       </h3>

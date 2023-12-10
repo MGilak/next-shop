@@ -26,8 +26,8 @@
     "components/Layout.jsx",
     "pages/index.jsx",
     "pages/_app.jsx",
-    "pages/headphones.jsx",
+    "pages/headphones/index.jsx",
     "components/suggestion/suggestItem.jsx"
-, "components/grouping/index.jsx"  ],
+, "components/grouping/index.jsx", "components/headphoneItem/index.jsx"  ],
   "exclude": ["node_modules"]
 }

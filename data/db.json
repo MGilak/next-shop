@@ -1,5 +1,5 @@
 {
-  "headphones": [
+  "suggestions": [
     {
       "id": 1,
       "name": "heaphone1",
@@ -134,5 +134,19 @@
       "name": "تجهیزات امنیتی و نظارتی",
       "url": "https://dkstatics-public.digikala.com/digikala-products/bd3e1ed1cb32ad0eaa19b21892d48891b604c4cb_1643609009.jpg?x-oss-process=image/resize,m_lfit,h_350,w_350/quality,q_60"
     }
+  ],
+  "headphones": [
+    { "id": 1, "path": "./images/headphones/1.webp" },
+    { "id": 2, "path": "./images/headphones/2.webp" },
+    { "id": 3, "path": "./images/headphones/3.webp" },
+    { "id": 4, "path": "./images/headphones/4.webp" },
+    { "id": 5, "path": "./images/headphones/5.webp" },
+    { "id": 6, "path": "./images/headphones/6.webp" },
+    { "id": 7, "path": "./images/headphones/7.webp" },
+    { "id": 8, "path": "./images/headphones/8.webp" },
+    { "id": 3, "path": "./images/headphones/3.webp" },
+    { "id": 6, "path": "./images/headphones/6.webp" },
+    { "id": 7, "path": "./images/headphones/7.webp" },
+    { "id": 8, "path": "./images/headphones/8.webp" }
   ]
 }

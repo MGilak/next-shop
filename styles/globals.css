@@ -16,7 +16,6 @@
 
 html[dir="ltr"] {
   --font-family: "Poppins", "Roboto", "sans-serif";
-  color: #0f172a;
 }
 .items_center {
   display: flex;

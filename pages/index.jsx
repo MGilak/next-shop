@@ -21,7 +21,7 @@ export async function getStaticProps() {
   const res = await fetch("http://localhost:4000/bannersHeader");
   const data = await res.json();
 
-  const headphonesRes = await fetch("http://localhost:4000/headphones");
+  const headphonesRes = await fetch("http://localhost:4000/suggestions");
   const headphonesData = await headphonesRes.json();
 
   const groupingRes = await fetch("http://localhost:4000/grouping");

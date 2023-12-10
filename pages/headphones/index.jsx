@@ -33,12 +33,6 @@ const headphones = ({ data }) => {
           {data.map((item) => (
             <HeadphoneItem data={item} />
           ))}
-          {/* <HeadphoneItem />
-          <HeadphoneItem />
-          <HeadphoneItem />
-          <HeadphoneItem />
-          <HeadphoneItem />
-          <HeadphoneItem /> */}
         </section>
 
         <div className="h-[400px]"> </div>
