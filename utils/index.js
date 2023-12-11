@@ -16,3 +16,7 @@ export function replace(n) {
   const separatedNumbers = number.toLocaleString("fa-IR");
   return separatedNumbers;
 }
+
+export function finalPrice(price, off) {
+  return price - (price * off) / 100;
+}

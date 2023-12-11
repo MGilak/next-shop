@@ -1,8 +1,6 @@
 import { toFarsiNumber, replace } from "../../utils/index";
 
 const SuggestItem = ({ data }) => {
-  // console.log(toFarsiNumber);
-
   return (
     <div className="bg-white h-full ">
       <div className="h-full flex flex-col justify-around">

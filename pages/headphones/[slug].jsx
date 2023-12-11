@@ -3,18 +3,24 @@ import useStore from "../../store/cart";
 import { useParams } from "next/navigation";
 
 const Headphone = ({ data }) => {
+  // const carts = useStore((state) => state.carts);
   const add = useStore((state) => state.addCart);
+
+  const addToCart = (item) => {
+    add(item);
+  };
+
   const params = useParams();
   const headphone = data.find((item) => item.id === Number(params?.slug));
 
   return (
     <>
       <Layout title="محصول">
-        <section className="flex mt-20">
+        <section className="flex mt-20 container mx-auto">
           {/* right */}
           <div className="flex  w-[75%] ">
             <div className="w-1/2 ">
-              <img className="w-[50%]" src="/images/headphones/1.webp" alt="" />
+              <img className="w-[30%]" src={headphone?.path} alt="image" />
             </div>
 
             <div className="w-1/2">
@@ -75,6 +81,13 @@ const Headphone = ({ data }) => {
               >
                 افزودن به سبد
               </button>
+
+              {/* <button
+                onClick={() => update(headphone)}
+                className="bg-[#ed1c35] w-[90%] text-white rounded-lg  text-sm  py-2 mt-2"
+              >
+                به روز کردن
+              </button> */}
             </div>
           </div>
         </section>

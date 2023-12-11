@@ -49,7 +49,7 @@ body {
   font-size: 14px;
 }
 input {
-  font-family: inherit;
+  font-family: inherit !important;
   color: inherit;
   font-size: inherit;
 }
