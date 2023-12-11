@@ -6,33 +6,18 @@ import HeadphoneItem from "@/components/headphoneItem";
 const headphones = ({ data }) => {
   const [product, setProduct] = useState([]);
 
-  // const fetchData = async () => {
-  //   const res = await fetch("/api/users");
-  //   const data = await res.json();
-
-  //   setProduct(data);
-  // };
-
   return (
     <>
       <Layout title="هدفن‌ها">
         {/* <Breadcrumb /> */}
-        {/* <button
-          className="bg-blue-400 rounded-lg text-white p-2 "
-          onClick={fetchData}
-        >
-          fetch
-        </button> */}
 
         <div>{product.length > 0 && product.map((item) => <h1>daly</h1>)}</div>
 
-        <section className="container mx-auto mt-14 grid grid-cols-5 gap-4">
+        <section className="container mx-auto mt-14 grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1   gap-4">
           {data.map((item) => (
             <HeadphoneItem data={item} key={item.id} />
           ))}
         </section>
-
-        <div className="h-[400px]"> </div>
       </Layout>
     </>
   );

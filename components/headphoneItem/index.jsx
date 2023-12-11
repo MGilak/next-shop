@@ -17,11 +17,11 @@ const HeadphoneItem = ({ data }) => {
       onClick={goToDetailsPage}
       className="flex items-center justify-between flex-col hover:shadow-xl my_transition shadow-md h-[380px] py-3 cursor-pointer"
     >
-      <img className="w-2/3" src={data.path} alt="" />
+      <img className="sm:w-2/3 w-[220px]" src={data.path} alt="" />
       <h3 className="text-[13px] font-600">{data.name}</h3>
 
       {/* details */}
-      <div className="w-full px-3 flex flex-col gap-4">
+      <div className="sm:w-full w-[250px] px-3 flex flex-col gap-4">
         {/* rate */}
         <div className="flex items-center justify-between w-full">
           <span className="text-xs">ارسال فردا</span>
@@ -42,7 +42,7 @@ const HeadphoneItem = ({ data }) => {
             </span>
             <span>{toFarsiNumber(data.star)}</span>
           </div>
-        </div>  
+        </div>
 
         {/* price */}
         <div className="flex flex-col">
