@@ -111,9 +111,11 @@ const Cart = () => {
             </div>
           </section>
         ) : (
-          <section className="mt-10 container mx-auto">
-            <div className="bg-[#ed1c35] text-white rounded-lg p-3 w-[20%]">
-              <h1 className="font-bold text-xl">محصولی در سبد خرید نیست.</h1>
+          <section className="mt-10 container mx-auto w-full ">
+            <div className="bg-[#ed1c35] text-white rounded-lg p-3 w-[350px]">
+              <h1 className="font-bold text-xl whitespace-nowrap">
+                محصولی در سبد خرید نیست.
+              </h1>
             </div>
           </section>
         )}

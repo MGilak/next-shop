@@ -3,12 +3,11 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import useStore from "@/store/cart";
 
-// import MegaMenu from "./megaMenu";
+import MegaMenu from "./megaMenu";
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
   const carts = useStore((state) => state.carts);
-  // console.log("carts", carts);
 
   useEffect(() => {
     const isDarkMode = localStorage.getItem("darkMode") === "true";
@@ -28,7 +27,7 @@ const Header = () => {
     <>
       <header className="flex items-center justify-between py-5 mx-16">
         {/* right */}
-        <div className="flex gap-10 items-center w-[60%]">
+        <div className="flex gap-10 items-center w-full md:w-[60%]">
           <div>
             <Link
               href="/
@@ -72,7 +71,7 @@ const Header = () => {
         </div>
 
         {/* left */}
-        <div className="flex items-center gap-5 ">
+        <div className="md:flex hidden items-center gap-5 ">
           {/* login */}
           <div className="flex items-center gap-2 border-[1px] border-gray-200 rounded-lg px-2 py-1 cursor-pointer">
             <span>
@@ -153,8 +152,8 @@ const Header = () => {
         </div>
       </header>
 
-      <div className="flex items-center gap-4 mt-2 mx-16">
-        <div className="flex items-center cursor-pointer relative">
+      <div className="flex justify-between mx-16">
+        <div className="md:hidden block cursor-pointer">
           <span>
             <svg
               stroke="currentColor"
@@ -172,28 +171,126 @@ const Header = () => {
               ></path>
             </svg>
           </span>
-          <Link href="/headphones">
-            <span className="items_center text-[15px] font-600">
-              دسته‌بندی کالاها
-            </span>
-          </Link>
-
-          <div className="absolute top-6 right-2">{/* <MegaMenu /> */}</div>
         </div>
 
-        <nav>
-          <ul className="flex items-center gap-3 text-[13px] text-slate-400/90">
-            <li>
-              <Link href="/">شگفت‌انگیزها</Link>
-            </li>
-            <li>
-              <Link href="/">پرفروش‌ترین‌ها</Link>
-            </li>
-            <li>
-              <Link href="/">تخفیف‌ها و پیشنهادها</Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="md:flex hidden items-center gap-4 mt-2">
+          <div className="flex items-center cursor-pointer relative">
+            <span>
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 8 16"
+                style={{ fontSize: "2rem" }}
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 4v1H0V4h8zM0 8h8V7H0v1zm0 3h8v-1H0v1z"
+                ></path>
+              </svg>
+            </span>
+            <Link href="/headphones">
+              <span className="items_center text-[15px] font-600">
+                دسته‌بندی کالاها
+              </span>
+            </Link>
+
+            <div className="absolute top-6 right-2">
+              <MegaMenu />
+            </div>
+          </div>
+
+          <nav>
+            <ul className="flex items-center gap-3 text-[13px] text-slate-400/90">
+              <li>
+                <Link href="/">شگفت‌انگیزها</Link>
+              </li>
+              <li>
+                <Link href="/">پرفروش‌ترین‌ها</Link>
+              </li>
+              <li>
+                <Link href="/">تخفیف‌ها و پیشنهادها</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div className="flex items-center gap-5 md:hidden">
+          {/* login */}
+          <div>
+            <span className="cursor-pointer">
+              <svg
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="0"
+                viewBox="0 0 24 24"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ fontSize: "1.6rem" }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                ></path>
+              </svg>
+            </span>
+          </div>
+
+          {/* line */}
+          <div className="w-[2px] h-6 bg-gray-200"></div>
+
+          {/* cart */}
+          <div className="relative cursor-pointer">
+            <Link href="/cart">
+              <span>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth="0"
+                  viewBox="0 0 1024 1024"
+                  style={{ fontSize: "1.6rem" }}
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M922.9 701.9H327.4l29.9-60.9 496.8-.9c16.8 0 31.2-12 34.2-28.6l68.8-385.1c1.8-10.1-.9-20.5-7.5-28.4a34.99 34.99 0 0 0-26.6-12.5l-632-2.1-5.4-25.4c-3.4-16.2-18-28-34.6-28H96.5a35.3 35.3 0 1 0 0 70.6h125.9L246 312.8l58.1 281.3-74.8 122.1a34.96 34.96 0 0 0-3 36.8c6 11.9 18.1 19.4 31.5 19.4h62.8a102.43 102.43 0 0 0-20.6 61.7c0 56.6 46 102.6 102.6 102.6s102.6-46 102.6-102.6c0-22.3-7.4-44-20.6-61.7h161.1a102.43 102.43 0 0 0-20.6 61.7c0 56.6 46 102.6 102.6 102.6s102.6-46 102.6-102.6c0-22.3-7.4-44-20.6-61.7H923c19.4 0 35.3-15.8 35.3-35.3a35.42 35.42 0 0 0-35.4-35.2zM305.7 253l575.8 1.9-56.4 315.8-452.3.8L305.7 253zm96.9 612.7c-17.4 0-31.6-14.2-31.6-31.6 0-17.4 14.2-31.6 31.6-31.6s31.6 14.2 31.6 31.6a31.6 31.6 0 0 1-31.6 31.6zm325.1 0c-17.4 0-31.6-14.2-31.6-31.6 0-17.4 14.2-31.6 31.6-31.6s31.6 14.2 31.6 31.6a31.6 31.6 0 0 1-31.6 31.6z"></path>
+                </svg>
+              </span>
+            </Link>
+
+            <span
+              className={`absolute -top-2 -right-2 text-xs bg-green-700 text-white w-4 h-4 rounded-full flex items-center justify-center pt-1 ${
+                carts.length === 0 && "bg-red-700"
+              }`}
+            >
+              {carts.length}
+            </span>
+          </div>
+
+          <span onClick={toggleDarkMode} className="cursor-pointer">
+            <svg
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{
+                fontSize: " 1.3rem",
+                filter: "drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 5px)",
+              }}
+            >
+              <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z"></path>
+            </svg>
+          </span>
+        </div>
       </div>
     </>
   );
