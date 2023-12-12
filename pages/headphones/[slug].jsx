@@ -1,36 +1,51 @@
 import Layout from "@/components/Layout";
 import useStore from "../../store/cart";
 import { useParams } from "next/navigation";
+import { finalPrice, toFarsiNumber, replace } from "@/utils";
 
 const Headphone = ({ data }) => {
-  // const carts = useStore((state) => state.carts);
+  const carts = useStore((state) => state.carts);
   const add = useStore((state) => state.addCart);
+  const increase = useStore((state) => state.increase);
+  const decrease = useStore((state) => state.decrease);
+  const removeItem = useStore((state) => state.removeItem);
+
+  const decreaseItem = (item) => {
+    const product = carts.find((cart) => cart.id === item.id);
+    if (product) {
+      if (product.qnt === 1) {
+        removeItem(item);
+      } else if (product.qnt > 1) {
+        decrease(item);
+      }
+    }
+  };
 
   const addToCart = (item) => {
     add(item);
   };
 
   const params = useParams();
-  const headphone = data.find((item) => item.id === Number(params?.slug));
+  const cart = carts.find((item) => item.id === Number(params?.slug));
 
   return (
     <>
       <Layout title="محصول">
-        <section className="flex mt-20 container mx-auto">
+        <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row mt-20 container mx-auto">
           {/* right */}
-          <div className="flex  w-[75%] ">
-            <div className="w-1/2 ">
-              <img className="w-[30%]" src={headphone?.path} alt="image" />
+          <div className="flex sm:flex-row flex-col w-full lg:w-[50%] xl:w-[70%] px-5 sm:px-0">
+            <div className="w-full flex justify-center sm:block sm:w-1/2 lg:w-[40%]">
+              <img className="" src={data.path} alt="image" />
             </div>
 
-            <div className="w-1/2">
+            <div className="w-full flex  flex-col items-center sm:block sm:w-1/2 lg:w-[60%]">
               <div>
                 <h1 className="font-bold mb-5">هدفون بلوتوثی مدل inPods 12</h1>
                 <div className="flex gap-1 items-center">
-                  <span className="whitespace-nowrap text-xs text-slate-300">
+                  <span className="sm:whitespace-nowrap text-xs text-slate-300">
                     inPods 12 Bluetooth Headphone
                   </span>
-                  <div className="w-full h-[1px] bg-slate-300"></div>
+                  <div className="w-full h-[1px] bg-slate-300 lg:block hidden"></div>
                 </div>
               </div>
 
@@ -41,7 +56,7 @@ const Headphone = ({ data }) => {
                   <h1>مشکی</h1>
                 </div>
 
-                <div className="flex gap-5">
+                <div className="flex  flex-wrap gap-5">
                   <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
                   <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
                   <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
@@ -68,26 +83,45 @@ const Headphone = ({ data }) => {
           </div>
 
           {/* left */}
-          <div className="flex flex-col items-center w-[25%]">
-            <div className="w-[70%] h-full bg-[#f0f0f080] flex flex-col items-center border-2 border-[#d4d3d380] rounded-lg py-3">
-              <div className="flex justify-end font-bold gap-2 mb-2 w-[90%]">
-                <span>۱۲۷,۸۰۰</span>
-                <span>تومان</span>
+          <div className="flex flex-col items-center w-full lg:w-[50%]  xl:w-[30%] lg:px-0 px-6">
+            <div className="lg:w-[70%] w-full h-full bg-[#f0f0f080] flex flex-col gap-6 lg:gap-0 justify-around items-center border-2 border-[#d4d3d380] rounded-lg py-3">
+              <div className="flex justify-between  gap-2 mb-2 w-[90%]">
+                <div>
+                  <span className="text-sm">قیمت محصول:</span>
+                </div>
+
+                <div className="font-bold">
+                  <span>{replace(toFarsiNumber(data?.price))}</span>
+                  <span>تومان</span>
+                </div>
+              </div>
+
+              <div className="flex gap-2 items-center">
+                <span
+                  onClick={() => increase(data)}
+                  className="text-2xl select-none cursor-pointer border-[1px] border-green-500 w-8 justify_center rounded-lg hover:bg-white bg-green-600 text-white hover:text-black my_transition"
+                >
+                  +
+                </span>
+                <input
+                  value={cart ? cart.qnt : 0}
+                  className="w-12 h-10 border-0 outline-none ring-0 text-center pr-4 pt-1 font-bold"
+                  type="number"
+                />
+                <span
+                  onClick={() => decreaseItem(data)}
+                  className="text-2xl select-none cursor-pointer border-[1px] border-red-400 w-8 justify_center rounded-lg hover:bg-white bg-red-600 text-white hover:text-black my_transition"
+                >
+                  -
+                </span>
               </div>
 
               <button
-                onClick={() => add(headphone)}
+                onClick={() => addToCart(data)}
                 className="bg-[#ed1c35] w-[90%] text-white rounded-lg  text-sm  py-2"
               >
                 افزودن به سبد
               </button>
-
-              {/* <button
-                onClick={() => update(headphone)}
-                className="bg-[#ed1c35] w-[90%] text-white rounded-lg  text-sm  py-2 mt-2"
-              >
-                به روز کردن
-              </button> */}
             </div>
           </div>
         </section>
@@ -105,8 +139,10 @@ export const getStaticPaths = async () => {
   };
 };
 
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:4000/headphones");
+export async function getStaticProps(context) {
+  const slug = context.params.slug;
+
+  const res = await fetch(`http://localhost:4000/headphones/${slug}`);
   const data = await res.json();
 
   return {

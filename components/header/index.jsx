@@ -200,7 +200,7 @@ const Header = () => {
           onClick={() => setShowSideMenu(false)}
           className={` ${
             showSideMenu ? "translate-x-0" : "translate-x-[850px]"
-          }  my_transition backdrop-blur-sm fixed top-0 bottom-0 right-0 w-[300px] h-screen z-40`}
+          }  my_transition backdrop-blur-sm fixed top-0 bottom-0 right-0 w-[300px] h-screen z-40 block md:hidden`}
         >
           <div
             onClick={closeSideMenu}
