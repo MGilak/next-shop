@@ -80,6 +80,21 @@ a {
   direction: rtl !important;
 }
 
+@keyframes shaking {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.hand_shaking {
+  animation: shaking 0.7s infinite;
+}
+
 /* font */
 @font-face {
   font-family: Vazirmatn;

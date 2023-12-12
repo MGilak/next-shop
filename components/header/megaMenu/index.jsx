@@ -33,8 +33,8 @@ const MegaMenu = () => {
                 onMouseLeave={() => setShowMenu(false)}
                 className="bg-slate-100 my_transition hover:bg-white w-full px-3 py-3"
               >
-                <Link href="/headphones" className="text-red-600">
-                  کالای دیجیتال
+                <Link href="/headphones" className="text-red-600 ">
+                  <div className="hand_shaking">کالای دیجیتال</div>
                 </Link>
 
                 <div

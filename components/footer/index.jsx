@@ -14,9 +14,9 @@ const Footer = () => {
     <footer className="mt-20 p-6 pb-4 bg-blue-50 dark:bg-[#0f172a] dark:border-t-[01px]">
       <div className=" container mx-auto">
         {/* up */}
-        <div className="flex justify-between">
+        <div className="flex md:flex-row flex-col gap-6 md:gap-4 justify-between">
           {/* right */}
-          <div className="flex justify-between w-[70%]">
+          <div className="flex justify-around sm:justify-between md:justify-around w-full md:w-[60%] xl:w-[70%]">
             <div>
               <h1 className="font-bold text-[]17px mb-3">با دیجی‌کالا</h1>
               <ul className="flex flex-col gap-3 text-[14px] font-300">
@@ -45,7 +45,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div>
+            <div className="sm:block hidden">
               <h1 className="font-bold text-[]17px mb-3">
                 راهنمای خرید از دیجی‌کالا
               </h1>
@@ -63,13 +63,14 @@ const Footer = () => {
           </div>
 
           {/* left */}
-          <div className="w-[30%] flex flex-col items-end">
-            <div className="flex flex-col justify-between h-full">
-              <div>
+          <div className="md:w-[30%] w-full flex flex-col items-end">
+            <div className="flex flex-col md:gap-0 gap-4 justify-between h-full w-full">
+              <div className="md:block hidden">
                 <h1 className="font-bold text-[17px]">همراه ما باشید!</h1>
               </div>
 
-              <div className="flex gap-6">
+              {/* social */}
+              <div className="flex flex-wrap gap-6">
                 <span className="cursor-pointer">
                   <svg
                     stroke="currentColor"
@@ -139,18 +140,22 @@ const Footer = () => {
                 </span>
               </div>
 
-              <p>با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید.</p>
+              <div className="flex flex-col gap-4">
+                <p className="text-sm">
+                  با ثبت ایمیل، از جدید‌ترین تخفیف‌ها با‌خبر شوید.
+                </p>
 
-              <div className="flex gap-3">
-                <input
-                  className="bg-slate-100 rounded-lg px-4 py-3 ring-0 border-none outline-none w-full"
-                  type="text"
-                  placeholder="ایمیل شما"
-                />
+                <div className="flex gap-3">
+                  <input
+                    className="bg-slate-200 rounded-lg px-4 py-3 ring-0 border-none outline-none w-full dark:text-slate-500"
+                    type="text"
+                    placeholder="ایمیل شما"
+                  />
 
-                <button className="bg-slate-100 rounded-lg px-4 py-3 ">
-                  ثبت
-                </button>
+                  <button className="bg-slate-200 rounded-lg px-4 py-3 dark:text-slate-400">
+                    ثبت
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -161,33 +166,33 @@ const Footer = () => {
           <div className="bg-[#3c4b6d] rounded-lg p-4 flex justify-between">
             <div className=" flex items-center gap-5">
               <img
-                className="w-12"
+                className="w-10 sm:w-12"
                 src="https://www.digikala.com/statics/img/png/footerlogo2.webp"
                 alt=""
               />
-              <h1 className="text-white text-xl font-700">
+              <h1 className="text-white text-sm md:text-lg xl:text-xl font-700">
                 دانلود اپلیکیشن دیجی‌کالا
               </h1>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex sm:flex-nowrap flex-wrap justify-end items-center gap-3">
               <a href="/">
                 <img
-                  className="h-[44px]"
+                  className="h-[36px] lg:h-[44px]"
                   src="https://www.digikala.com/statics/img/svg/appStores/coffe-bazzar.svg"
                   alt=""
                 />
               </a>
               <a href="/">
                 <img
-                  className="h-[44px]"
+                  className="h-[36px] lg:h-[44px]"
                   src="https://www.digikala.com/statics/img/svg/appStores/myket.svg"
                   alt=""
                 />
               </a>
               <a href="/">
                 <img
-                  className="h-[44px]"
+                  className="h-[36px] lg:h-[44px]"
                   src="https://www.digikala.com/statics/img/svg/appStores/sib-app.svg"
                   alt=""
                 />
