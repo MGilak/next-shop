@@ -29,7 +29,13 @@ export default function Slider({ data }) {
       >
         {data.map((item) => (
           <SwiperSlide>
-            <img className="w-full" src={item.url} alt="logo-header" />
+            <div className="h-full">
+              <img
+                className="w-full object-fill"
+                src={item.url}
+                alt="logo-header"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -7,8 +7,14 @@ export default function Home({ data, headphonesData, groupingData }) {
   return (
     <>
       <Layout title="خانه">
-        <Slider data={data} />
-        <Suggestion data={headphonesData} />
+        <div className="px-4 sm:px-0">
+          <Slider data={data} />
+        </div>
+
+        <div className="px-4 sm:px-0">
+          <Suggestion data={headphonesData} />
+        </div>
+
         <Grouping data={groupingData} />
       </Layout>
     </>

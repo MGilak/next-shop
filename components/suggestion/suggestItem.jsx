@@ -5,7 +5,7 @@ const SuggestItem = ({ data }) => {
     <div className="bg-white h-full ">
       <div className="h-full flex flex-col justify-around">
         <div className="w-full justify_center ">
-          <img className="w-[135px]" src={data.url} alt="" />
+          <img className="w-[135px] object-cover" src={data.url} alt="" />
         </div>
 
         <div className="bg-white mt-2 px-2">
