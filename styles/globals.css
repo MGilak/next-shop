@@ -47,7 +47,6 @@ body {
 ::placeholder {
   color: #b9b9b9;
   font-size: 14px;
-  /* color: #ffffff80; */
 }
 input {
   font-family: inherit !important;
@@ -71,6 +70,14 @@ a {
 ::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 100vw;
+}
+
+/* Toastify */
+.Toastify__toast {
+  font-family: var(--font-family) !important;
+  text-align: right;
+  font-size: 14px !important;
+  direction: rtl !important;
 }
 
 /* font */

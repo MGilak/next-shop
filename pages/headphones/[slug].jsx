@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Layout from "@/components/Layout";
 import useStore from "../../store/cart";
 import { useParams } from "next/navigation";
-import { finalPrice, toFarsiNumber, replace } from "@/utils";
+import { toFarsiNumber, replace } from "@/utils";
+import { toast } from "react-toastify";
 
 const Headphone = ({ data }) => {
   const carts = useStore((state) => state.carts);
@@ -10,11 +12,23 @@ const Headphone = ({ data }) => {
   const decrease = useStore((state) => state.decrease);
   const removeItem = useStore((state) => state.removeItem);
 
+  const [color, setColor] = useState(null);
+
+  const colors = [
+    { name: "مشکی", color: "bg-black" },
+    { name: "قرمز", color: "bg-red-500" },
+    { name: "سبز", color: "bg-green-500" },
+    { name: "زرد", color: "bg-yellow-500" },
+    { name: "بنفش", color: "bg-purple-500" },
+    { name: "سفید", color: "bg-white" },
+  ];
+
   const decreaseItem = (item) => {
     const product = carts.find((cart) => cart.id === item.id);
     if (product) {
       if (product.qnt === 1) {
         removeItem(item);
+        toast.error("محصول از سبد خرید حذف شد.");
       } else if (product.qnt > 1) {
         decrease(item);
       }
@@ -22,7 +36,12 @@ const Headphone = ({ data }) => {
   };
 
   const addToCart = (item) => {
-    add(item);
+    if (!color) {
+      toast.warning("لطفاً رنگ محصول را انتخاب کنید.");
+    } else {
+      toast.success("محصول با موفقیت به سبد خرید اضافه شد.");
+      add(item);
+    }
   };
 
   const params = useParams();
@@ -53,16 +72,16 @@ const Headphone = ({ data }) => {
               <div className="mt-8">
                 <div className="flex gap-1 mb-3 font-bold">
                   <h1>رنگ:</h1>
-                  <h1>مشکی</h1>
+                  <h1>{color}</h1>
                 </div>
 
                 <div className="flex  flex-wrap gap-5">
-                  <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
-                  <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
-                  <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
-                  <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
-                  <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
-                  <div className="w-6 h-6 bg-black cursor-pointer rounded-full"></div>
+                  {colors.map((item) => (
+                    <div
+                      onClick={() => setColor(item.name)}
+                      className={`w-6 h-6 cursor-pointer rounded-lg ${item.color}`}
+                    ></div>
+                  ))}
                 </div>
               </div>
 
@@ -99,18 +118,16 @@ const Headphone = ({ data }) => {
               <div className="flex gap-2 items-center">
                 <span
                   onClick={() => increase(data)}
-                  className="text-2xl select-none cursor-pointer border-[1px] border-green-500 w-8 justify_center rounded-lg hover:bg-white bg-green-600 text-white hover:text-black my_transition"
+                  className="text-2xl select-none cursor-pointer border-[1px] border-green-500 w-8 justify_center rounded-lg bg-white hover:bg-green-600 hover:text-white text-black my_transition"
                 >
                   +
                 </span>
-                <input
-                  value={cart ? cart.qnt : 0}
-                  className="w-12 h-10 border-0 outline-none ring-0 text-center pr-4 pt-1 font-bold"
-                  type="number"
-                />
+                <span className="w-12 h-10 border-0 outline-none ring-0 text-center justify_center font-bold">
+                  {cart ? cart.qnt : 0}
+                </span>
                 <span
                   onClick={() => decreaseItem(data)}
-                  className="text-2xl select-none cursor-pointer border-[1px] border-red-400 w-8 justify_center rounded-lg hover:bg-white bg-red-600 text-white hover:text-black my_transition"
+                  className="text-2xl select-none cursor-pointer border-[1px] border-red-400 w-8 justify_center rounded-lg bg-white hover:bg-red-600 hover:text-white text-black my_transition"
                 >
                   -
                 </span>
@@ -118,7 +135,7 @@ const Headphone = ({ data }) => {
 
               <button
                 onClick={() => addToCart(data)}
-                className="bg-[#ed1c35] w-[90%] text-white rounded-lg  text-sm  py-2"
+                className="hover:bg-[#ed1c35] border-2 border-[#ed1c35] my_transition w-[90%] hover:text-white rounded-lg  text-sm  py-2"
               >
                 افزودن به سبد
               </button>

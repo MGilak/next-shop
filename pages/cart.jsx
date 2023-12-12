@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import useStore from "../store/cart";
 import Link from "next/link";
 import { finalPrice, toFarsiNumber, replace } from "@/utils";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const carts = useStore((state) => state.carts);
@@ -13,6 +14,7 @@ const Cart = () => {
     const product = carts.find((cart) => cart.id === item.id);
     if (product.qnt === 1) {
       removeItem(item);
+      toast.error("محصول از سبد خرید حذف شد.");
     } else {
       decrease(item);
     }
@@ -55,11 +57,12 @@ const Cart = () => {
                     >
                       +
                     </span>
-                    <input
-                      value={item.qnt}
-                      className="w-12 h-10 border-0 outline-none ring-0 text-center pr-4 pt-1 font-bold"
+                    <span
+                      className="w-12 h-10 border-0 outline-none ring-0 text-center justify_center pt-1 font-bold"
                       type="number"
-                    />
+                    >
+                      {item.qnt}
+                    </span>
                     <span
                       onClick={() => decreaseItem(item)}
                       className="text-2xl select-none cursor-pointer border-[1px] border-red-400 w-8 justify_center rounded-lg hover:bg-white bg-red-600 text-white hover:text-black my_transition"
@@ -111,11 +114,17 @@ const Cart = () => {
             </div>
           </section>
         ) : (
-          <section className="mt-10 container mx-auto w-full ">
-            <div className="bg-[#ed1c35] text-white rounded-lg p-3 w-[350px]">
-              <h1 className="font-bold text-xl whitespace-nowrap">
+          <section className="mt-10 container mx-auto w-full flex sm:justify-start justify-center px-3 sm:px-0">
+            <div className="bg-[#ed1c35] text-white rounded-lg p-3 w-full sm:w-[600px] flex sm:flex-row flex-col gap-3 items-center justify-between">
+              <h1 className="font-bold text-md sm:text-xl whitespace-nowrap">
                 محصولی در سبد خرید نیست.
               </h1>
+
+              <Link href="/headphones">
+                <p className="text-[11px] whitespace-nowrap cursor-pointer bg-[#3c4b6d] text-white rounded-lg px-2 py-1">
+                  بازگشت به صفحه محصولات
+                </p>
+              </Link>
             </div>
           </section>
         )}
