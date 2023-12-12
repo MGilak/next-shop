@@ -7,6 +7,8 @@ import MegaMenu from "./megaMenu";
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [showSideMenu, setShowSideMenu] = useState(false);
   const carts = useStore((state) => state.carts);
 
   useEffect(() => {
@@ -23,9 +25,25 @@ const Header = () => {
     setDarkMode((prevMode) => !prevMode);
   };
 
+  // const sideMenuHandler = () => {
+  //   setShowSideMenu
+  // }
+
+  const closeSideMenu = (e) => {
+    setShowSideMenu(false);
+  };
+
+  const preventClick = (e) => {
+    e.stopPropagation();
+  };
+
+  // const goToHeadphones = (e) => {
+  //   e.stopPropagation();
+  // };
+
   return (
-    <>
-      <header className="flex items-center justify-between py-5 mx-16">
+    <div>
+      <header className="flex items-center justify-between py-5 mx-16 z-500">
         {/* right */}
         <div className="flex gap-10 items-center w-full md:w-[60%]">
           <div>
@@ -153,7 +171,11 @@ const Header = () => {
       </header>
 
       <div className="flex justify-between mx-16">
-        <div className="md:hidden block cursor-pointer">
+        {/* menu icon responsive */}
+        <div
+          onClick={() => setShowSideMenu(true)}
+          className="md:hidden block cursor-pointer"
+        >
           <span>
             <svg
               stroke="currentColor"
@@ -173,8 +195,60 @@ const Header = () => {
           </span>
         </div>
 
-        <div className="md:flex hidden items-center gap-4 mt-2">
-          <div className="flex items-center cursor-pointer relative">
+        {/* menu in responsive */}
+        <div
+          onClick={() => setShowSideMenu(false)}
+          className={` ${
+            showSideMenu ? "translate-x-0" : "translate-x-[850px]"
+          }  my_transition backdrop-blur-sm fixed top-0 bottom-0 right-0 w-[300px] h-screen z-40`}
+        >
+          <div
+            onClick={closeSideMenu}
+            className="w-screen fixed h-screen flex items-center"
+          >
+            <div
+              onClick={preventClick}
+              className="w-[40%] h-[80%] bg-white flex items-center"
+            >
+              <ul className="flex flex-col gap-5 text-sm font-500 whitespace-nowrap dark:text-black">
+                <li className="relative my_transition hover:bg-white w-full px-3 py-3">
+                  <Link href="/">موبایل</Link>
+                </li>
+                <li className="my_transition hover:bg-white w-full px-3 py-3">
+                  <Link href="/headphones" className="text-red-600">
+                    کالای دیجیتال
+                  </Link>
+                </li>
+                <li className="my_transition hover:bg-white w-full px-3 py-3">
+                  <Link href="/">خودرو و موتورسیکلت</Link>
+                </li>
+                <li className="my_transition hover:bg-white w-full px-3 py-3">
+                  <Link href="/">کالای دیجیتال</Link>
+                </li>
+                <li className="my_transition hover:bg-white w-full px-3 py-3">
+                  <Link href="/">مد و پوشاک</Link>
+                </li>
+                <li className="my_transition hover:bg-white w-full px-3 py-3">
+                  <Link href="/">زیبایی و سلامت</Link>
+                </li>
+                <li className="my_transition hover:bg-white w-full px-3 py-3">
+                  <Link href="/">ورزش و سفر</Link>
+                </li>
+                <li className="my_transition hover:bg-white w-full px-3 py-3">
+                  <Link href="/">کالاهای سوپرمارکتی</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {/* end of menu in responsive */}
+
+        <div className="md:flex hidden items-center gap-4 mt-2 z-20">
+          <div
+            onMouseEnter={() => setShowMenu(true)}
+            onMouseLeave={() => setShowMenu(false)}
+            className="flex items-center cursor-pointer relative"
+          >
             <span>
               <svg
                 stroke="currentColor"
@@ -192,14 +266,13 @@ const Header = () => {
                 ></path>
               </svg>
             </span>
-            <Link href="/headphones">
-              <span className="items_center text-[15px] font-600">
-                دسته‌بندی کالاها
-              </span>
-            </Link>
-
-            <div className="absolute top-6 right-2">
-              <MegaMenu />
+            <div className="items_center text-[15px] font-600 group">
+              <span>دسته‌بندی کالاها</span>
+              <div
+                className={`absolute top-6 block z-20 ${!showMenu && "hidden"}`}
+              >
+                <MegaMenu />
+              </div>
             </div>
           </div>
 
@@ -292,8 +365,43 @@ const Header = () => {
           </span>
         </div>
       </div>
-    </>
+
+      <div
+        className={`w-screen h-screen fixed bottom-0 left-0 top-28 z-[5] backdrop-blur-sm ${
+          !showMenu && "hidden"
+        }`}
+      ></div>
+    </div>
   );
 };
 
 export default Header;
+
+// import React from 'react';
+
+// const ParentComponent = () => {
+//   const handleClick = (e) => {
+//     e.stopPropagation();
+//     // این قسمت برای کد کلیک روی تگ والد اضافه کنید
+//   }
+
+//   return (
+//     <div onClick={handleClick}>
+//       <ChildComponent />
+//     </div>
+//   );
+// }
+
+// const ChildComponent = () => {
+//   const handleChildClick = () => {
+//     // این قسمت برای کد کلیک روی تگ فرزند اضافه کنید
+//   }
+
+//   return (
+//     <div onClick={handleChildClick}>
+//       Click me
+//     </div>
+//   );
+// }
+
+// export default ParentComponent;

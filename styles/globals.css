@@ -47,6 +47,7 @@ body {
 ::placeholder {
   color: #b9b9b9;
   font-size: 14px;
+  /* color: #ffffff80; */
 }
 input {
   font-family: inherit !important;
@@ -56,6 +57,20 @@ input {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(var(--color-bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 100vw;
 }
 
 /* font */

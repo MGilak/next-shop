@@ -10,8 +10,6 @@ export default function Home({ data, headphonesData, groupingData }) {
         <Slider data={data} />
         <Suggestion data={headphonesData} />
         <Grouping data={groupingData} />
-
-        {/* <div className="h-[800px]"></div> */}
       </Layout>
     </>
   );
