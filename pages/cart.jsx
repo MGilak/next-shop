@@ -1,10 +1,20 @@
-import Layout from "@/components/Layout";
+import Layout from "../components/Layout";
 import useStore from "../store/cart";
 import Link from "next/link";
-import { finalPrice, toFarsiNumber, replace } from "@/utils";
+import { finalPrice, toFarsiNumber, replace } from "../utils";
 import { toast } from "react-toastify";
 
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+
 const Cart = () => {
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("api/auth/signin?callbackUrl=/cart");
+    },
+  });
+
   const carts = useStore((state) => state.carts);
   const increase = useStore((state) => state.increase);
   const decrease = useStore((state) => state.decrease);
@@ -32,6 +42,16 @@ const Cart = () => {
   return (
     <>
       <Layout>
+        {session?.user ? (
+          <div className="container mx-auto flex">
+            <Link href="http://localhost:3000/api/auth/signout">
+              <button className="bg-red-500 text-white p-4 rounded-lg">
+                خروج
+              </button>
+            </Link>
+          </div>
+        ) : null}
+
         {carts.length > 0 ? (
           <section className="mt-10 container mx-auto flex items-start gap-2">
             {/* right */}

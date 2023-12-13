@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Layout from "@/components/Layout";
-// import Breadcrumb from "@/components/breadcrumb";
-import HeadphoneItem from "@/components/headphoneItem";
+import Layout from "../../components/Layout";
+// import Breadcrumb from "../../components/breadcrumb";
+import HeadphoneItem from "../../components/headphoneItem";
 
 const headphones = ({ data }) => {
   const [product, setProduct] = useState([]);

@@ -1,7 +1,7 @@
-import Slider from "@/components/main-slider";
-import Suggestion from "@/components/suggestion";
-import Grouping from "@/components/grouping";
-import Layout from "@/components/Layout";
+import Slider from "../components/main-slider";
+import Suggestion from "../components/suggestion";
+import Grouping from "../components/grouping";
+import Layout from "../components/Layout";
 
 export default function Home({ data, headphonesData, groupingData }) {
   return (

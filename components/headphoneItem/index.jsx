@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { finalPrice, toFarsiNumber, replace } from "@/utils";
+import { finalPrice, toFarsiNumber, replace } from "../../utils";
 
 const HeadphoneItem = ({ data }) => {
   const router = useRouter();
