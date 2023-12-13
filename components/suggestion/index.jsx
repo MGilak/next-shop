@@ -11,8 +11,6 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import SuggestItem from "./suggestItem";
 
 function Suggestion({ data }) {
-  console.log("dddd", data);
-
   return (
     <>
       <Swiper

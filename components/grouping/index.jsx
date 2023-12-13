@@ -3,7 +3,9 @@ const Grouping = ({ data }) => {
     <>
       <div className="container mx-auto mt-20">
         <div className="justify_center font-800 text-[22px]">
-          <h1 className="text-lg sm:text-xl md:text-2xl">خرید بر اساس دسته‌بندی</h1>
+          <h1 className="text-lg sm:text-xl md:text-2xl">
+            خرید بر اساس دسته‌بندی
+          </h1>
         </div>
 
         <div className="flex flex-wrap justify-center gap-[10px] mt-10">
