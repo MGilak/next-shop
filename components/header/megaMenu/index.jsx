@@ -21,7 +21,7 @@ const MegaMenu = () => {
   return (
     <>
       <div className="absolute -right-6">
-        <div className="container mx-auto mt-6 w-[50vw] h-[500px]">
+        <div className="container mx-auto mt-6 h-[500px]">
           {/* right */}
           <div className="w-[250px]">
             <ul className="flex flex-col text-sm font-500 whitespace-nowrap dark:text-black">

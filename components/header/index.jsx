@@ -1,13 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import useStore from "../../store/cart";
 
+import { IoMdArrowDropdown, IoIosArrowBack } from "react-icons/io";
+import { FaArrowRightFromBracket } from "react-icons/fa6";
+import { IoPersonOutline } from "react-icons/io5";
+
+import useStore from "../../store/cart";
 import MegaMenu from "./megaMenu";
 
+import { useSession } from "next-auth/react";
+// import { redirect } from "next/navigation";
+
 const Header = () => {
+  const { data: session } = useSession({
+    // required: true,
+    // onUnauthenticated() {
+    //   redirect("api/auth/signin?callbackUrl=/");
+    // },
+  });
+
   const [darkMode, setDarkMode] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [showPannel, setShowPannel] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
   const carts = useStore((state) => state.carts);
 
@@ -91,33 +106,75 @@ const Header = () => {
         {/* left */}
         <div className="md:flex hidden items-center gap-5 ">
           {/* login */}
-          <div className="flex items-center gap-2 border-[1px] border-gray-200 rounded-lg px-2 py-1 cursor-pointer">
-            <span>
-              <svg
-                stroke="currentColor"
-                fill="none"
-                strokeWidth="0"
-                viewBox="0 0 24 24"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ fontSize: "1.6rem" }}
+          {session?.user ? (
+            <div className="relative">
+              <div
+                onClick={() => setShowPannel(!showPannel)}
+                className="flex items-center"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                ></path>
-              </svg>
-            </span>
+                <span className="cursor-pointer">
+                  <IoPersonOutline className="text-2xl" />
+                </span>
 
-            <div className="flex items-center gap-2 font-light text-xs ">
-              <span>ورود</span>
-              <div className="w-[1.2px] h-3 bg-black"></div>
-              <span>ثبت‌نام</span>
+                <span>
+                  <IoMdArrowDropdown />
+                </span>
+              </div>
+
+              {/* hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh */}
+              <div
+                className={`absolute bg-white z-10 shadow-lg rounded-lg w-[200px] left-0 mt-3 py-3 block ${
+                  !showPannel && "hidden"
+                }`}
+              >
+                <div className="flex items-center w-full justify-between hover:bg-slate-100 mb-1 p-3 cursor-pointer">
+                  <span className="text-sm">محمود گیلک</span>
+                  <span>
+                    <IoIosArrowBack />
+                  </span>
+                </div>
+
+                <Link href="http://localhost:3000/api/auth/signout">
+                  <div className="flex items-center w-full justify-between hover:bg-slate-100 p-3 cursor-pointer">
+                    <span>
+                      <FaArrowRightFromBracket className="text-lg" />
+                    </span>
+                    <span className="text-sm">خروج از حساب کاربری</span>
+                  </div>
+                </Link>
+              </div>
             </div>
-          </div>
+          ) : (
+            <Link href="auth/login/page">
+              <div className="flex items-center gap-2 border-[1px] border-gray-200 rounded-lg px-2 py-1 cursor-pointer">
+                <span>
+                  <svg
+                    stroke="currentColor"
+                    fill="none"
+                    strokeWidth="0"
+                    viewBox="0 0 24 24"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ fontSize: "1.6rem" }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                    ></path>
+                  </svg>
+                </span>
+
+                <div className="flex items-center gap-2 font-light text-xs ">
+                  <span>ورود</span>
+                  <div className="w-[1.2px] h-3 bg-black"></div>
+                  <span>ثبت‌نام</span>
+                </div>
+              </div>
+            </Link>
+          )}
 
           {/* line */}
           <div className="w-[2px] h-6 bg-gray-200"></div>

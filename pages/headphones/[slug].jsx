@@ -50,7 +50,7 @@ const Headphone = ({ data }) => {
   return (
     <>
       <Layout title="محصول">
-        <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row mt-20 container mx-auto">
+        <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row my-20 container mx-auto">
           {/* right */}
           <div className="flex sm:flex-row flex-col w-full lg:w-[50%] xl:w-[70%] px-5 sm:px-0">
             <div className="w-full flex justify-center sm:block sm:w-1/2 lg:w-[40%]">

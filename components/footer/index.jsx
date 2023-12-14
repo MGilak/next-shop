@@ -11,7 +11,7 @@ const digi = [
 
 const Footer = () => {
   return (
-    <footer className="mt-20 p-6 pb-4 bg-blue-50 dark:bg-[#0f172a] dark:border-t-[01px]">
+    <footer className="p-6 pb-4 bg-blue-50 dark:bg-[#0f172a] dark:border-t-[01px]">
       <div className=" container mx-auto">
         {/* up */}
         <div className="flex md:flex-row flex-col gap-6 md:gap-4 justify-between">
