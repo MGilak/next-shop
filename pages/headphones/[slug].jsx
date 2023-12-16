@@ -76,8 +76,9 @@ const Headphone = ({ data }) => {
                 </div>
 
                 <div className="flex  flex-wrap gap-5">
-                  {colors.map((item) => (
+                  {colors.map((item, index) => (
                     <div
+                      key={index}
                       onClick={() => setColor(item.name)}
                       className={`w-6 h-6 cursor-pointer rounded-lg ${item.color}`}
                     ></div>

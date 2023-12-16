@@ -27,8 +27,8 @@ export default function Slider({ data }) {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper main-slider container mx-auto mt-10"
       >
-        {data.map((item) => (
-          <SwiperSlide>
+        {data.map((item, index) => (
+          <SwiperSlide key={index}>
             <div className="h-full">
               <img
                 className="w-full object-fill"

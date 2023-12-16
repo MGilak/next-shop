@@ -10,7 +10,10 @@ const Grouping = ({ data }) => {
 
         <div className="flex flex-wrap justify-center gap-[10px] mt-10">
           {data.map((item) => (
-            <div className="lg:w-[190px] sm:w-[150px] w-[120px] justify_center flex-col gap-4 cursor-pointer">
+            <div
+              key={item.id}
+              className="lg:w-[190px] sm:w-[150px] w-[120px] justify_center flex-col gap-4 cursor-pointer"
+            >
               <img className="w-[80%]" src={item.url} alt={item.name} />
               <span className="text-sm font-700">{item.name}</span>
             </div>

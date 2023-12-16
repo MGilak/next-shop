@@ -48,8 +48,11 @@ const MegaMenu = () => {
                         لپ‌تاپ
                       </h1>
                       {menu &&
-                        menu[0].map((item) => (
-                          <li className="py-3 text-[13px] hover:text-red-600">
+                        menu[0].map((item, index) => (
+                          <li
+                            key={index}
+                            className="py-3 text-[13px] hover:text-red-600"
+                          >
                             {item}
                           </li>
                         ))}
@@ -60,8 +63,11 @@ const MegaMenu = () => {
                     <ul className="">
                       <h1 className="mt-2 font-bold text-red-600">هدفون</h1>
                       {menu &&
-                        menu[1].map((item) => (
-                          <li className="py-3 text-[13px] hover:text-red-600">
+                        menu[1].map((item, index) => (
+                          <li
+                            key={index}
+                            className="py-3 text-[13px] hover:text-red-600"
+                          >
                             {item}
                           </li>
                         ))}
@@ -74,8 +80,11 @@ const MegaMenu = () => {
                         ساعت و مچ‌بند هوشمند
                       </h1>
                       {menu &&
-                        menu[2].map((item) => (
-                          <li className="py-3 text-[13px] hover:text-red-600">
+                        menu[2].map((item, index) => (
+                          <li
+                            key={index}
+                            className="py-3 text-[13px] hover:text-red-600"
+                          >
                             {item}
                           </li>
                         ))}

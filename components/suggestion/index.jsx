@@ -25,8 +25,8 @@ function Suggestion({ data }) {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper suggestSlider container  mt-12"
       >
-        {data.map((item) => (
-          <SwiperSlide>
+        {data.map((item, index) => (
+          <SwiperSlide key={index}>
             <SuggestItem data={item} />
           </SwiperSlide>
         ))}

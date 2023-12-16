@@ -62,8 +62,8 @@ const Cart = () => {
                   carts.length > 0 && "border-[1px] "
                 }`}
               >
-                {carts.map((item) => (
-                  <div className="flex justify-around items-center lg:gap-0 gap-2 px-3 lg:px-0 py-3 sm:py-0">
+                {carts.map((item, index) => (
+                  <div key={index} className="flex justify-around items-center lg:gap-0 gap-2 px-3 lg:px-0 py-3 sm:py-0">
                     <div>
                       <img className="w-44" src={item.path} alt={item.name} />
                     </div>
