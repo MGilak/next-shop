@@ -7,6 +7,7 @@ import { FaArrowRightFromBracket } from "react-icons/fa6";
 import { IoPersonOutline } from "react-icons/io5";
 
 import useStore from "../../store/cart";
+import useDarkMode from "../../store/dark";
 import MegaMenu from "./megaMenu";
 
 import { useSession } from "next-auth/react";
@@ -24,21 +25,14 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showPannel, setShowPannel] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
+
   const carts = useStore((state) => state.carts);
+  const mode = useDarkMode((state) => state.mode);
+  const changeModeHandler = useDarkMode((state) => state.changeMode);
 
   useEffect(() => {
-    const isDarkMode = localStorage.getItem("darkMode") === "true";
-    setDarkMode(Boolean(isDarkMode));
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-    localStorage.setItem("darkMode", String(darkMode));
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
+    document.documentElement.classList.toggle("dark", mode);
+  }, [mode]);
 
   // const sideMenuHandler = () => {
   //   setShowSideMenu
@@ -207,7 +201,7 @@ const Header = () => {
             </span>
           </div>
 
-          <span onClick={toggleDarkMode} className="cursor-pointer">
+          <span onClick={changeModeHandler} className="cursor-pointer">
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -403,7 +397,7 @@ const Header = () => {
             </span>
           </div>
 
-          <span onClick={toggleDarkMode} className="cursor-pointer">
+          <span onClick={changeModeHandler} className="cursor-pointer">
             <svg
               stroke="currentColor"
               fill="currentColor"
