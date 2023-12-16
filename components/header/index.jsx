@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { IoMdArrowDropdown, IoIosArrowBack } from "react-icons/io";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import { IoPersonOutline } from "react-icons/io5";
+import { LuSun } from "react-icons/lu";
 
 import useStore from "../../store/cart";
 import useDarkMode from "../../store/dark";
@@ -21,7 +22,6 @@ const Header = () => {
     // },
   });
 
-  const [darkMode, setDarkMode] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showPannel, setShowPannel] = useState(false);
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -70,7 +70,7 @@ const Header = () => {
           </div>
 
           {/* search */}
-          <div className="flex items-center gap-5 bg-slate-200 px-4 py-4  w-full rounded-lg">
+          <div className="flex items-center gap-5 bg-slate-200 dark:bg-slate-600 px-4 py-4  w-full rounded-lg">
             <div>
               <svg
                 stroke="currentColor"
@@ -115,13 +115,12 @@ const Header = () => {
                 </span>
               </div>
 
-              {/* hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh */}
               <div
-                className={`absolute bg-white z-10 shadow-lg rounded-lg w-[200px] left-0 mt-3 py-3 block ${
+                className={`absolute bg-white z-10 shadow-lg rounded-lg w-[200px] left-0 mt-3 py-3 block dark:shadow-[0px_0px_7px_-1px_rgba(255,255,255,0.3)] dark:bg-[#0f172a] ${
                   !showPannel && "hidden"
                 }`}
               >
-                <div className="flex items-center w-full justify-between hover:bg-slate-100 mb-1 p-3 cursor-pointer">
+                <div className="flex items-center w-full justify-between dark:hover:bg-slate-600 hover:bg-slate-100 mb-1 p-3 cursor-pointer">
                   <span className="text-sm">محمود گیلک</span>
                   <span>
                     <IoIosArrowBack />
@@ -129,7 +128,7 @@ const Header = () => {
                 </div>
 
                 <Link href="http://localhost:3000/api/auth/signout">
-                  <div className="flex items-center w-full justify-between hover:bg-slate-100 p-3 cursor-pointer">
+                  <div className="flex items-center w-full justify-between dark:hover:bg-slate-600 hover:bg-slate-100 p-3 cursor-pointer">
                     <span>
                       <FaArrowRightFromBracket className="text-lg" />
                     </span>
@@ -202,21 +201,29 @@ const Header = () => {
           </div>
 
           <span onClick={changeModeHandler} className="cursor-pointer">
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 24 24"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                fontSize: " 1.3rem",
-                filter: "drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 5px)",
-              }}
-            >
-              <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z"></path>
-            </svg>
+            {mode ? (
+              <span>
+                <LuSun className="text-xl" />
+              </span>
+            ) : (
+              <span>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth="0"
+                  viewBox="0 0 24 24"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    fontSize: " 1.3rem",
+                    filter: "drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 5px)",
+                  }}
+                >
+                  <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z"></path>
+                </svg>
+              </span>
+            )}
           </span>
         </div>
       </header>
@@ -344,7 +351,69 @@ const Header = () => {
 
         <div className="flex items-center gap-5 md:hidden">
           {/* login */}
-          <div>
+          {session?.user ? (
+            <div className="relative">
+              <div
+                onClick={() => setShowPannel(!showPannel)}
+                className="flex items-center"
+              >
+                <span className="cursor-pointer">
+                  <IoPersonOutline className="text-2xl" />
+                </span>
+
+                <span>
+                  <IoMdArrowDropdown />
+                </span>
+              </div>
+
+              <div
+                className={`absolute bg-white z-10 shadow-lg rounded-lg w-[200px] left-0 mt-3 py-3 block dark:shadow-[0px_0px_7px_-1px_rgba(255,255,255,0.3)] dark:bg-[#0f172a] ${
+                  !showPannel && "hidden"
+                }`}
+              >
+                <div className="flex items-center w-full justify-between dark:hover:bg-slate-600 hover:bg-slate-100 mb-1 p-3 cursor-pointer">
+                  <span className="text-sm">محمود گیلک</span>
+                  <span>
+                    <IoIosArrowBack />
+                  </span>
+                </div>
+
+                <Link href="http://localhost:3000/api/auth/signout">
+                  <div className="flex items-center w-full justify-between dark:hover:bg-slate-600 hover:bg-slate-100 p-3 cursor-pointer">
+                    <span>
+                      <FaArrowRightFromBracket className="text-lg" />
+                    </span>
+                    <span className="text-sm">خروج از حساب کاربری</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <Link href="auth/login/page">
+              <div className="flex items-center gap-2 border-[1px] border-gray-200 rounded-lg px-2 py-1 cursor-pointer">
+                <span>
+                  <svg
+                    stroke="currentColor"
+                    fill="none"
+                    strokeWidth="0"
+                    viewBox="0 0 24 24"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ fontSize: "1.6rem" }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                    ></path>
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          )}
+          {/* <div>
             <span className="cursor-pointer">
               <svg
                 stroke="currentColor"
@@ -364,7 +433,7 @@ const Header = () => {
                 ></path>
               </svg>
             </span>
-          </div>
+          </div> */}
 
           {/* line */}
           <div className="w-[2px] h-6 bg-gray-200"></div>
@@ -398,21 +467,29 @@ const Header = () => {
           </div>
 
           <span onClick={changeModeHandler} className="cursor-pointer">
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 24 24"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                fontSize: " 1.3rem",
-                filter: "drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 5px)",
-              }}
-            >
-              <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z"></path>
-            </svg>
+            {mode ? (
+              <span>
+                <LuSun className="text-xl" />
+              </span>
+            ) : (
+              <span>
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth="0"
+                  viewBox="0 0 24 24"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    fontSize: " 1.3rem",
+                    filter: "drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 5px)",
+                  }}
+                >
+                  <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z"></path>
+                </svg>
+              </span>
+            )}
           </span>
         </div>
       </div>

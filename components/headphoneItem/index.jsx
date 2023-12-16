@@ -15,7 +15,7 @@ const HeadphoneItem = ({ data }) => {
   return (
     <section
       onClick={goToDetailsPage}
-      className="flex items-center justify-between flex-col hover:shadow-xl my_transition shadow-md h-[380px] py-3 cursor-pointer"
+      className="dark:shadow-[0px_0px_7px_1px_rgba(255,255,255,0.3)] flex items-center justify-between flex-col hover:shadow-xl my_transition shadow-md h-[380px] py-3 cursor-pointer"
     >
       <img className="sm:w-2/3 w-[220px]" src={data.path} alt="" />
       <h3 className="text-[13px] font-600">{data.name}</h3>

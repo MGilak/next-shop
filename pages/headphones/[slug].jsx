@@ -103,7 +103,7 @@ const Headphone = ({ data }) => {
 
           {/* left */}
           <div className="flex flex-col items-center w-full lg:w-[50%]  xl:w-[30%] lg:px-0 px-6">
-            <div className="lg:w-[70%] w-full h-full bg-[#f0f0f080] flex flex-col gap-6 lg:gap-0 justify-around items-center border-2 border-[#d4d3d380] rounded-lg py-3">
+            <div className="lg:w-[70%] w-full h-full dark:bg-[#0f172a] bg-[#f0f0f080] flex flex-col gap-6 lg:gap-0 justify-around items-center border-2 border-[#d4d3d380] rounded-lg py-3">
               <div className="flex justify-between  gap-2 mb-2 w-[90%]">
                 <div>
                   <span className="text-sm">قیمت محصول:</span>
@@ -135,7 +135,7 @@ const Headphone = ({ data }) => {
 
               <button
                 onClick={() => addToCart(data)}
-                className="hover:bg-[#ed1c35] border-2 border-[#ed1c35] my_transition w-[90%] hover:text-white rounded-lg  text-sm  py-2"
+                className="hover:bg-[#ed1c35] dark:border-[1px] border-2 border-[#ed1c35] my_transition w-[90%] hover:text-white rounded-lg  text-sm  py-2"
               >
                 افزودن به سبد
               </button>
