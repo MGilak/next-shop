@@ -3,32 +3,69 @@ import Layout from "../../components/Layout";
 // import Breadcrumb from "../../components/breadcrumb";
 import HeadphoneItem from "../../components/headphoneItem";
 
+import { MdOutlineSort } from "react-icons/md";
+
 const headphones = ({ data }) => {
   const [product, setProduct] = useState([]);
 
-  const [isHydrated, setIsHydrated] = useState();
+  const [category, setGategory] = useState("all");
 
   useEffect(() => {
-    setIsHydrated(true);
-  }, []);
+    switch (category) {
+      case "popular": {
+        const filtered = data.filter((item) => item.star > 3);
+        setProduct(filtered);
+        break;
+      }
+
+      case "best": {
+        const filtered = data.filter((item) => item.bestSeller);
+        setProduct(filtered);
+        break;
+      }
+
+      default:
+        setProduct(data);
+        break;
+    }
+  }, [category]);
 
   return (
     <>
-      {isHydrated && (
-        <Layout title="هدفن‌ها">
-          {/* <Breadcrumb /> */}
+      <Layout title="هدفن‌ها">
+        {/* <Breadcrumb /> */}
 
-          <div>
-            {product.length > 0 && product.map((item) => <h1>daly</h1>)}
+        <div className="container mx-auto mt-10 border-b-2 pb-2 flex items-center gap-5">
+          <div className="flex gap-1 items-center">
+            <MdOutlineSort className="text-xl" />
+            <span className="font-bold">مرتب‌سازی:</span>
           </div>
 
-          <section className="container mx-auto mt-14 mb-20 grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 px-4 sm:px-0 gap-4">
-            {data.map((item) => (
-              <HeadphoneItem data={item} key={item.id} />
-            ))}
-          </section>
-        </Layout>
-      )}
+          <div className="flex items-center gap-4 text-sm">
+            <span onClick={() => setGategory("all")} className="cursor-pointer">
+              همه محصولات
+            </span>
+            <span
+              onClick={() => setGategory("best")}
+              className="cursor-pointer"
+            >
+              پرفروش‌ترین‌ها
+            </span>
+            <span
+              onClick={() => setGategory("popular")}
+              className="cursor-pointer"
+            >
+              محبوب‌ترین‌ها
+            </span>
+          </div>
+        </div>
+
+        <section className="container mx-auto mt-14 mb-20 grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 px-4 sm:px-0 gap-4">
+          {product.map((item) => (
+            <HeadphoneItem data={item} key={item.id} />
+          ))}
+        </section>
+      </Layout>
     </>
   );
 };

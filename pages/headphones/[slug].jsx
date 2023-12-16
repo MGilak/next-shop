@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Layout from "../../components/Layout";
 import useStore from "../../store/cart";
 import { useParams } from "next/navigation";
@@ -47,112 +47,102 @@ const Headphone = ({ data }) => {
   const params = useParams();
   const cart = carts.find((item) => item.id === Number(params?.slug));
 
-  const [isHydrated, setIsHydrated] = useState();
-
-  useEffect(() => {
-    setIsHydrated(true);
-  }, []);
-
   return (
     <>
-      {isHydrated && (
-        <Layout title="محصول">
-          <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row my-20 container mx-auto">
-            {/* right */}
-            <div className="flex sm:flex-row flex-col w-full lg:w-[50%] xl:w-[70%] px-5 sm:px-0">
-              <div className="w-full flex justify-center sm:block sm:w-1/2 lg:w-[40%]">
-                <img className="" src={data.path} alt="image" />
+      <Layout title="محصول">
+        <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row my-20 container mx-auto">
+          {/* right */}
+          <div className="flex sm:flex-row flex-col w-full lg:w-[50%] xl:w-[70%] px-5 sm:px-0">
+            <div className="w-full flex justify-center sm:block sm:w-1/2 lg:w-[40%]">
+              <img className="" src={data.path} alt="image" />
+            </div>
+
+            <div className="w-full flex  flex-col items-center sm:block sm:w-1/2 lg:w-[60%]">
+              <div>
+                <h1 className="font-bold mb-5">هدفون بلوتوثی مدل inPods 12</h1>
+                <div className="flex gap-1 items-center">
+                  <span className="sm:whitespace-nowrap text-xs text-slate-300">
+                    inPods 12 Bluetooth Headphone
+                  </span>
+                  <div className="w-full h-[1px] bg-slate-300 lg:block hidden"></div>
+                </div>
               </div>
 
-              <div className="w-full flex  flex-col items-center sm:block sm:w-1/2 lg:w-[60%]">
+              {/* colors */}
+              <div className="mt-8">
+                <div className="flex gap-1 mb-3 font-bold">
+                  <h1>رنگ:</h1>
+                  <h1>{color}</h1>
+                </div>
+
+                <div className="flex  flex-wrap gap-5">
+                  {colors.map((item) => (
+                    <div
+                      onClick={() => setColor(item.name)}
+                      className={`w-6 h-6 cursor-pointer rounded-lg ${item.color}`}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+
+              {/*  */}
+              <div className="mt-8">
+                <div className="flex gap-1 mb-3 font-bold">
+                  <h1>ویژگی‌ها:</h1>
+                </div>
+
+                <ul className="text-sm">
+                  <li className="flex gap-2">
+                    <span>نوع گوشی:</span>
+                    <span>دو گوشی</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* left */}
+          <div className="flex flex-col items-center w-full lg:w-[50%]  xl:w-[30%] lg:px-0 px-6">
+            <div className="lg:w-[70%] w-full h-full bg-[#f0f0f080] flex flex-col gap-6 lg:gap-0 justify-around items-center border-2 border-[#d4d3d380] rounded-lg py-3">
+              <div className="flex justify-between  gap-2 mb-2 w-[90%]">
                 <div>
-                  <h1 className="font-bold mb-5">
-                    هدفون بلوتوثی مدل inPods 12
-                  </h1>
-                  <div className="flex gap-1 items-center">
-                    <span className="sm:whitespace-nowrap text-xs text-slate-300">
-                      inPods 12 Bluetooth Headphone
-                    </span>
-                    <div className="w-full h-[1px] bg-slate-300 lg:block hidden"></div>
-                  </div>
+                  <span className="text-sm">قیمت محصول:</span>
                 </div>
 
-                {/* colors */}
-                <div className="mt-8">
-                  <div className="flex gap-1 mb-3 font-bold">
-                    <h1>رنگ:</h1>
-                    <h1>{color}</h1>
-                  </div>
-
-                  <div className="flex  flex-wrap gap-5">
-                    {colors.map((item) => (
-                      <div
-                        onClick={() => setColor(item.name)}
-                        className={`w-6 h-6 cursor-pointer rounded-lg ${item.color}`}
-                      ></div>
-                    ))}
-                  </div>
-                </div>
-
-                {/*  */}
-                <div className="mt-8">
-                  <div className="flex gap-1 mb-3 font-bold">
-                    <h1>ویژگی‌ها:</h1>
-                  </div>
-
-                  <ul className="text-sm">
-                    <li className="flex gap-2">
-                      <span>نوع گوشی:</span>
-                      <span>دو گوشی</span>
-                    </li>
-                  </ul>
+                <div className="font-bold">
+                  <span>{replace(toFarsiNumber(data?.price))}</span>
+                  <span>تومان</span>
                 </div>
               </div>
-            </div>
 
-            {/* left */}
-            <div className="flex flex-col items-center w-full lg:w-[50%]  xl:w-[30%] lg:px-0 px-6">
-              <div className="lg:w-[70%] w-full h-full bg-[#f0f0f080] flex flex-col gap-6 lg:gap-0 justify-around items-center border-2 border-[#d4d3d380] rounded-lg py-3">
-                <div className="flex justify-between  gap-2 mb-2 w-[90%]">
-                  <div>
-                    <span className="text-sm">قیمت محصول:</span>
-                  </div>
-
-                  <div className="font-bold">
-                    <span>{replace(toFarsiNumber(data?.price))}</span>
-                    <span>تومان</span>
-                  </div>
-                </div>
-
-                <div className="flex gap-2 items-center">
-                  <span
-                    onClick={() => increase(data)}
-                    className="text-2xl select-none cursor-pointer border-[1px] border-green-500 w-8 justify_center rounded-lg bg-white hover:bg-green-600 hover:text-white text-black my_transition"
-                  >
-                    +
-                  </span>
-                  <span className="w-12 h-10 border-0 outline-none ring-0 text-center justify_center font-bold">
-                    {cart ? cart.qnt : 0}
-                  </span>
-                  <span
-                    onClick={() => decreaseItem(data)}
-                    className="text-2xl select-none cursor-pointer border-[1px] border-red-400 w-8 justify_center rounded-lg bg-white hover:bg-red-600 hover:text-white text-black my_transition"
-                  >
-                    -
-                  </span>
-                </div>
-
-                <button
-                  onClick={() => addToCart(data)}
-                  className="hover:bg-[#ed1c35] border-2 border-[#ed1c35] my_transition w-[90%] hover:text-white rounded-lg  text-sm  py-2"
+              <div className="flex gap-2 items-center">
+                <span
+                  onClick={() => increase(data)}
+                  className="text-2xl select-none cursor-pointer border-[1px] border-green-500 w-8 justify_center rounded-lg bg-white hover:bg-green-600 hover:text-white text-black my_transition"
                 >
-                  افزودن به سبد
-                </button>
+                  +
+                </span>
+                <span className="w-12 h-10 border-0 outline-none ring-0 text-center justify_center font-bold">
+                  {cart ? cart.qnt : 0}
+                </span>
+                <span
+                  onClick={() => decreaseItem(data)}
+                  className="text-2xl select-none cursor-pointer border-[1px] border-red-400 w-8 justify_center rounded-lg bg-white hover:bg-red-600 hover:text-white text-black my_transition"
+                >
+                  -
+                </span>
               </div>
+
+              <button
+                onClick={() => addToCart(data)}
+                className="hover:bg-[#ed1c35] border-2 border-[#ed1c35] my_transition w-[90%] hover:text-white rounded-lg  text-sm  py-2"
+              >
+                افزودن به سبد
+              </button>
             </div>
-          </section>
-        </Layout>
-      )}
+          </div>
+        </section>
+      </Layout>
     </>
   );
 };

@@ -142,6 +142,7 @@
       "star": 3,
       "path": "/images/headphones/1.webp",
       "price": 122000,
+      "bestSeller": 0,
       "name": "هدفون بلوتوثی کیو سی وای مدل T13 ANC"
     },
     {
@@ -150,6 +151,7 @@
       "star": 2,
       "path": "/images/headphones/2.webp",
       "price": 3100000,
+      "bestSeller": 1,
       "name": "هدفون بلوتوثی سامسونگ مدل Galaxy Buds2 Pro"
     },
     {
@@ -158,6 +160,7 @@
       "star": 5,
       "path": "/images/headphones/3.webp",
       "price": 4235000,
+      "bestSeller": 0,
       "name": "هندزفری بلوتوثی نیا مدل AirPods D35"
     },
     {
@@ -166,6 +169,7 @@
       "star": 3,
       "path": "/images/headphones/4.webp",
       "price": 325000,
+      "bestSeller": 1,
       "name": "هدفون بلوتوثی کیو سی وای مدل T13 TWS"
     },
     {
@@ -174,6 +178,7 @@
       "star": 4,
       "path": "/images/headphones/5.webp",
       "price": 10250000,
+      "bestSeller": 0,
       "name": "هدفون بی سیم سامسونگ مدل Galaxy Buds 2"
     },
     {
@@ -182,6 +187,7 @@
       "star": 2,
       "path": "/images/headphones/6.webp",
       "price": 8170000,
+      "bestSeller": 1,
       "name": "هدفون بلوتوثی انکر مدل SoundCore R50i A3949"
     },
     {
@@ -190,6 +196,7 @@
       "star": 5,
       "path": "/images/headphones/7.webp",
       "price": 920000,
+      "bestSeller": 0,
       "name": "هدفون بلوتوثی سامسونگ مدل Galaxy Buds Live"
     },
     {
@@ -198,6 +205,7 @@
       "star": 4,
       "path": "/images/headphones/8.webp",
       "price": 1200000,
+      "bestSeller": 1,
       "name": "هدفون بی سیم مدل M11 TWS"
     },
     {
@@ -206,6 +214,7 @@
       "star": 3,
       "path": "/images/headphones/3.webp",
       "price": 750000,
+      "bestSeller": 0,
       "name": "هدفون بلوتوثی مدل InPods Pro2 به همراه کاور"
     },
     {
@@ -214,6 +223,7 @@
       "star": 5,
       "path": "/images/headphones/6.webp",
       "price": 630000,
+      "bestSeller": 1,
       "name": "هدفون بی سیم  مدل M19 Newest"
     },
     {
@@ -222,6 +232,7 @@
       "star": 4,
       "path": "/images/headphones/7.webp",
       "price": 1350000,
+      "bestSeller": 0,
       "name": "هدفون بلوتوثی سامسونگ مدل Galaxy Buds Live"
     },
     {
@@ -230,6 +241,7 @@
       "star": 5,
       "path": "/images/headphones/8.webp",
       "price": 610000,
+      "bestSeller": 1,
       "name": "هدفون بلوتوثی انکر مدل SoundCore R50i A3949"
     }
   ],
