@@ -2,23 +2,32 @@ import Slider from "../components/main-slider";
 import Suggestion from "../components/suggestion";
 import Grouping from "../components/grouping";
 import Layout from "../components/Layout";
+import { useEffect, useState } from "react";
 
 export default function Home({ data, headphonesData, groupingData }) {
+  const [isHydrated, setIsHydrated] = useState();
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
   return (
     <>
-      <Layout title="خانه">
-        <div className="mb-20">
-          <div className="px-4 sm:px-0">
-            <Slider data={data} />
-          </div>
+      {isHydrated && (
+        <Layout title="خانه">
+          <div className="mb-20">
+            <div className="px-4 sm:px-0">
+              <Slider data={data} />
+            </div>
 
-          <div className="px-4 sm:px-0">
-            <Suggestion data={headphonesData} />
-          </div>
+            <div className="px-4 sm:px-0">
+              <Suggestion data={headphonesData} />
+            </div>
 
-          <Grouping data={groupingData} />
-        </div>
-      </Layout>
+            <Grouping data={groupingData} />
+          </div>
+        </Layout>
+      )}
     </>
   );
 }

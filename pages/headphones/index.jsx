@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 // import Breadcrumb from "../../components/breadcrumb";
 import HeadphoneItem from "../../components/headphoneItem";
@@ -6,19 +6,29 @@ import HeadphoneItem from "../../components/headphoneItem";
 const headphones = ({ data }) => {
   const [product, setProduct] = useState([]);
 
+  const [isHydrated, setIsHydrated] = useState();
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
   return (
     <>
-      <Layout title="هدفن‌ها">
-        {/* <Breadcrumb /> */}
+      {isHydrated && (
+        <Layout title="هدفن‌ها">
+          {/* <Breadcrumb /> */}
 
-        <div>{product.length > 0 && product.map((item) => <h1>daly</h1>)}</div>
+          <div>
+            {product.length > 0 && product.map((item) => <h1>daly</h1>)}
+          </div>
 
-        <section className="container mx-auto mt-14 mb-20 grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 px-4 sm:px-0 gap-4">
-          {data.map((item) => (
-            <HeadphoneItem data={item} key={item.id} />
-          ))}
-        </section>
-      </Layout>
+          <section className="container mx-auto mt-14 mb-20 grid 2xl:grid-cols-5 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 px-4 sm:px-0 gap-4">
+            {data.map((item) => (
+              <HeadphoneItem data={item} key={item.id} />
+            ))}
+          </section>
+        </Layout>
+      )}
     </>
   );
 };

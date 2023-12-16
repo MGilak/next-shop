@@ -1,6 +1,7 @@
 import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 
-const useStore = create((set, get) => ({
+const cartsStore = (set, get) => ({
   carts: [],
   addCart: (item) => {
     const product = get().carts.find((cart) => cart.id === item.id);
@@ -34,6 +35,14 @@ const useStore = create((set, get) => ({
       carts: state.carts.filter((cart) => cart.id !== item.id),
     }));
   },
-}));
+});
+
+const useStore = create(
+  devtools(
+    persist(cartsStore, {
+      name: "carts",
+    })
+  )
+);
 
 export default useStore;
