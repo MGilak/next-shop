@@ -14,6 +14,7 @@ function Suggestion({ data }) {
   return (
     <>
       <Swiper
+        cssMode={true}
         loop={true}
         slidesPerView={8}
         spaceBetween={2}
@@ -23,7 +24,7 @@ function Suggestion({ data }) {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper suggestSlider container  mt-12"
+        className="mySwiper suggestSlider container mt-12"
       >
         {data.map((item, index) => (
           <SwiperSlide key={index}>

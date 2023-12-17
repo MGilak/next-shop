@@ -104,9 +104,9 @@ const Header = () => {
             <div className="relative">
               <div
                 onClick={() => setShowPannel(!showPannel)}
-                className="flex items-center"
+                className="flex items-center cursor-pointer"
               >
-                <span className="cursor-pointer">
+                <span>
                   <IoPersonOutline className="text-2xl" />
                 </span>
 
@@ -127,7 +127,7 @@ const Header = () => {
                   </span>
                 </div>
 
-                <Link href="http://localhost:3000/api/auth/signout">
+                <Link href="/api/auth/signout">
                   <div className="flex items-center w-full justify-between dark:hover:bg-slate-600 hover:bg-slate-100 p-3 cursor-pointer">
                     <span>
                       <FaArrowRightFromBracket className="text-lg" />
@@ -355,9 +355,9 @@ const Header = () => {
             <div className="relative">
               <div
                 onClick={() => setShowPannel(!showPannel)}
-                className="flex items-center"
+                className="flex items-center cursor-pointer"
               >
-                <span className="cursor-pointer">
+                <span>
                   <IoPersonOutline className="text-2xl" />
                 </span>
 
@@ -378,7 +378,7 @@ const Header = () => {
                   </span>
                 </div>
 
-                <Link href="http://localhost:3000/api/auth/signout">
+                <Link href="/api/auth/signout">
                   <div className="flex items-center w-full justify-between dark:hover:bg-slate-600 hover:bg-slate-100 p-3 cursor-pointer">
                     <span>
                       <FaArrowRightFromBracket className="text-lg" />

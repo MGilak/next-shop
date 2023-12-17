@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Link from "next/link";
 
 export default function Slider({ data }) {
   return (
@@ -30,11 +31,13 @@ export default function Slider({ data }) {
         {data.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="h-full">
-              <img
-                className="w-full object-fill"
-                src={item.url}
-                alt="logo-header"
-              />
+              <Link href="/headphones">
+                <img
+                  className="w-full object-fill"
+                  src={item.url}
+                  alt="logo-header"
+                />
+              </Link>
             </div>
           </SwiperSlide>
         ))}
