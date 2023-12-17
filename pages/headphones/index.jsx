@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 // import Breadcrumb from "../../components/breadcrumb";
 import HeadphoneItem from "../../components/headphoneItem";
+import { headphone } from "../../lib/fetchData";
 
 import { MdOutlineSort } from "react-icons/md";
 
@@ -73,8 +74,7 @@ const headphones = ({ data }) => {
 export default headphones;
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:4000/headphones");
-  const data = await res.json();
+  const data = await headphone();
 
   return {
     props: {

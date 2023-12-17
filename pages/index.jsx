@@ -2,7 +2,7 @@ import Slider from "../components/main-slider";
 import Suggestion from "../components/suggestion";
 import Grouping from "../components/grouping";
 import Layout from "../components/Layout";
-import { useEffect, useState } from "react";
+import { banner, grouping, suggestions } from "../lib/fetchData";
 
 export default function Home({ data, headphonesData, groupingData }) {
   return (
@@ -25,16 +25,11 @@ export default function Home({ data, headphonesData, groupingData }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:4000/bannersHeader");
-  const data = await res.json();
+  const data = await banner();
 
-  const headphonesRes = await fetch("http://localhost:4000/suggestions");
-  const headphonesData = await headphonesRes.json();
+  const headphonesData = await suggestions();
 
-  const groupingRes = await fetch("http://localhost:4000/grouping");
-  const groupingData = await groupingRes.json();
-
-  // console.log("sabannersHeaderlam", data);
+  const groupingData = await grouping();
 
   return {
     props: {
