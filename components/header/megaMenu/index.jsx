@@ -11,11 +11,9 @@ const MegaMenu = () => {
   };
 
   useEffect(() => {
-    const response = axios
-      .get("http://localhost:4000/megamenu")
-      .then((data) => {
-        setMenu(data.data);
-      });
+    axios.get("api/data").then((data) => {
+      setMenu(data.data.megamenu);
+    });
   }, []);
 
   return (
@@ -121,6 +119,3 @@ const MegaMenu = () => {
 };
 
 export default MegaMenu;
-{
-  /* <div class="w-screen h-screen bg-[rgba(255,255,255, 0.5)] fixed top-0 left-0 z-10 blur-sm"></div> */
-}

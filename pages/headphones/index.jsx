@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 // import Breadcrumb from "../../components/breadcrumb";
 import HeadphoneItem from "../../components/headphoneItem";
-import { headphone } from "../../lib/fetchData";
-
+``
 import { MdOutlineSort } from "react-icons/md";
+import path from "path";
+import fs from "fs";
 
-const headphones = ({ data }) => {
+const headphones = ({ parsedData }) => {
   const [product, setProduct] = useState([]);
 
   const [category, setGategory] = useState("all");
@@ -14,19 +15,19 @@ const headphones = ({ data }) => {
   useEffect(() => {
     switch (category) {
       case "popular": {
-        const filtered = data.filter((item) => item.star > 3);
+        const filtered = parsedData.filter((item) => item.star > 3);
         setProduct(filtered);
         break;
       }
 
       case "best": {
-        const filtered = data.filter((item) => item.bestSeller);
+        const filtered = parsedData.filter((item) => item.bestSeller);
         setProduct(filtered);
         break;
       }
 
       default:
-        setProduct(data);
+        setProduct(parsedData);
         break;
     }
   }, [category]);
@@ -74,11 +75,15 @@ const headphones = ({ data }) => {
 export default headphones;
 
 export async function getStaticProps() {
-  const data = await headphone();
+  const dbPath = path.join(process.cwd(), "data", "db.json");
+
+  const data = fs.readFileSync(dbPath);
+
+  const parsedData = JSON.parse(data).headphones;
 
   return {
     props: {
-      data,
+      parsedData,
     },
     revalidate: 60 * 60 * 12,
   };

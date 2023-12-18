@@ -44,16 +44,6 @@ const Cart = () => {
     <>
       <Layout>
         <div className="mb-20">
-          {/* {session?.user ? (
-            <div className="container mx-auto flex">
-              <Link href="http://localhost:3000/api/auth/signout">
-                <button className="bg-red-500 text-white p-4 rounded-lg">
-                  خروج
-                </button>
-              </Link>
-            </div>
-          ) : null} */}
-
           {carts.length > 0 ? (
             <section className="mt-10 container mx-auto flex md:flex-row flex-col items-start gap-2 sm:px-0 px-4">
               {/* right */}
@@ -63,7 +53,10 @@ const Cart = () => {
                 }`}
               >
                 {carts.map((item, index) => (
-                  <div key={index} className="flex justify-around items-center lg:gap-0 gap-2 px-3 lg:px-0 py-3 sm:py-0">
+                  <div
+                    key={index}
+                    className="flex justify-around items-center lg:gap-0 gap-2 px-3 lg:px-0 py-3 sm:py-0"
+                  >
                     <div>
                       <img className="w-44" src={item.path} alt={item.name} />
                     </div>

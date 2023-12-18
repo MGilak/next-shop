@@ -4,6 +4,8 @@ import useStore from "../../store/cart";
 import { useParams } from "next/navigation";
 import { toFarsiNumber, replace } from "../../utils";
 import { toast } from "react-toastify";
+import path from "path";
+import fs from "fs";
 
 const Headphone = ({ data }) => {
   const carts = useStore((state) => state.carts);
@@ -160,8 +162,13 @@ export const getStaticPaths = async () => {
 export async function getStaticProps(context) {
   const slug = context.params.slug;
 
-  const res = await fetch(`http://localhost:4000/headphones/${slug}`);
-  const data = await res.json();
+  const dbPath = path.join(process.cwd(), "data", "db.json");
+
+  const data2 = fs.readFileSync(dbPath);
+
+  const parsedData = JSON.parse(data2).headphones;
+
+  const data = parsedData.find((item) => item.id === +slug);
 
   return {
     props: {

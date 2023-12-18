@@ -2,22 +2,24 @@ import Slider from "../components/main-slider";
 import Suggestion from "../components/suggestion";
 import Grouping from "../components/grouping";
 import Layout from "../components/Layout";
-import { banner, grouping, suggestions } from "../lib/fetchData";
+import path from "path";
+import fs from "fs";
 
-export default function Home({ data, headphonesData, groupingData }) {
+export default function Home({ parsedData }) {
+  console.log(parsedData);
   return (
     <>
       <Layout title="خانه">
         <div className="mb-20">
           <div className="px-4 sm:px-0">
-            <Slider data={data} />
+            <Slider data={parsedData.bannersHeader} />
           </div>
 
           <div className="px-4 sm:px-0">
-            <Suggestion data={headphonesData} />
+            <Suggestion data={parsedData.suggestions} />
           </div>
 
-          <Grouping data={groupingData} />
+          <Grouping data={parsedData.grouping} />
         </div>
       </Layout>
     </>
@@ -25,17 +27,15 @@ export default function Home({ data, headphonesData, groupingData }) {
 }
 
 export async function getStaticProps() {
-  const data = await banner();
+  const dbPath = path.join(process.cwd(), "data", "db.json");
 
-  const headphonesData = await suggestions();
+  const data = fs.readFileSync(dbPath);
 
-  const groupingData = await grouping();
+  const parsedData = JSON.parse(data);
 
   return {
     props: {
-      data,
-      headphonesData,
-      groupingData,
+      parsedData,
     },
     revalidate: 60 * 60 * 12,
   };
