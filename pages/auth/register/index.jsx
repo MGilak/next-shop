@@ -18,9 +18,9 @@ export default function RegisterPage() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(
-      `Fullname: ${fullname.current}, Username: ${username.current}, Password: ${password.current}`
-    );
+    // console.log(
+    //   `Fullname: ${fullname.current}, Username: ${username.current}, Password: ${password.current}`
+    // );
 
     alert(
       `Fullname: ${fullname.current}, Username: ${username.current}, Password: ${password.current}`

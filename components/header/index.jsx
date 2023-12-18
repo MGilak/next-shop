@@ -266,7 +266,7 @@ const Header = () => {
           >
             <div
               onClick={preventClick}
-              className="w-[40%] h-[80%] bg-white flex items-center"
+              className="w-[300px] h-[80%] bg-white flex items-center"
             >
               <ul className="flex flex-col gap-5 text-sm font-500 whitespace-nowrap dark:text-black">
                 <li className="relative my_transition hover:bg-white w-full px-3 py-3">

@@ -11,7 +11,7 @@ const MegaMenu = () => {
   };
 
   useEffect(() => {
-    axios.get("api/data").then((data) => {
+    axios.get("/api/data").then((data) => {
       setMenu(data.data.megamenu);
     });
   }, []);

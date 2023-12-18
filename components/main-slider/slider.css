@@ -59,6 +59,10 @@
   background: linear-gradient(to top, #2babc4, #1693c0);
   height: 300px;
 }
+/* .suggested {
+  border-radius: 20px !important;
+  height: 300px;
+} */
 .suggestSlider .swiper-wrapper {
   align-items: center;
   margin: 0 auto;

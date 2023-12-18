@@ -21,8 +21,6 @@ export default function LoginPage() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("log from login page", username.current, password.current);
-
     try {
       const result = await signIn("credentials", {
         username: username.current,
@@ -30,8 +28,6 @@ export default function LoginPage() {
         redirect: false,
         callbackUrl,
       });
-
-      console.log("result", result);
 
       if (!result?.error) {
         router.push(callbackUrl);
