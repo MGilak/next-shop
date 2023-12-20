@@ -273,7 +273,7 @@ const Header = () => {
                   <Link href="/">موبایل</Link>
                 </li>
                 <li className="my_transition hover:bg-white w-full px-3 py-3">
-                  <Link href="/headphones" className="text-red-600">
+                  <Link href="/headphones/all" className="text-red-600">
                     کالای دیجیتال
                   </Link>
                 </li>

@@ -328,10 +328,10 @@ export default function data(req, res) {
             name: "هدفون",
             url: "/headphones/all",
             items: [
-              {
-                title: "هدفون بی‌سیم",
-                url: "/headphones",
-              },
+              // {
+              //   title: "هدفون بی‌سیم",
+              //   url: "/headphones/all",
+              // },
               {
                 title: "هدفون اپل (ایرپاد)",
                 url: "/headphones/apple",
@@ -346,19 +346,19 @@ export default function data(req, res) {
               },
               {
                 title: "هدفون سامسونگ",
-                url: "/headphones",
+                url: "/headphones/all",
               },
               {
                 title: "هدفون شیائومی",
-                url: "/headphones",
+                url: "/headphones/all",
               },
               {
                 title: "هدفون جی بی ال",
-                url: "/headphones",
+                url: "/headphones/all",
               },
               {
                 title: "هدفون ریزر",
-                url: "/headphones",
+                url: "/headphones/all",
               },
             ],
           },

@@ -157,7 +157,7 @@ const Cart = () => {
                   محصولی در سبد خرید نیست.
                 </h1>
 
-                <Link href="/headphones">
+                <Link href="/headphones/all">
                   <p className="text-[11px] whitespace-nowrap cursor-pointer bg-[#3c4b6d] text-white rounded-lg px-2 py-1">
                     بازگشت به صفحه محصولات
                   </p>

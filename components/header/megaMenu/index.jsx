@@ -31,14 +31,14 @@ const MegaMenu = () => {
         <div className="container mx-auto mt-6 h-[500px]">
           {/* right */}
           <div className="w-[250px]">
-            <ul className="flex flex-col text-sm font-500 whitespace-nowrap dark:text-black">
+            <ul className="flex flex-col text-sm font-500 whitespace-nowrap dark:text-black ">
               {menu &&
                 menu.map((item, index) => (
                   <li
                     key={index}
                     onMouseEnter={() => showMenuHandler("onMouseEnter", item)}
                     onMouseLeave={() => showMenuHandler("onMouseLeave", item)}
-                    className="bg-slate-100 relative my_transition hover:bg-white w-full px-3 py-3"
+                    className="bg-slate-100 relative afterLi my_transition hover:bg-white w-full px-3 py-3"
                   >
                     <Link href="/">{item.name}</Link>
 

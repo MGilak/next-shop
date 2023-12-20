@@ -31,7 +31,7 @@ export default function Slider({ data }) {
         {data.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="h-full">
-              <Link href="/headphones">
+              <Link href="/headphones/all">
                 <img
                   className="w-full object-fill"
                   src={item.url}

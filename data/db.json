@@ -2,6 +2,7 @@
   "suggestions": [
     {
       "id": 1,
+      "brand": "apple",
       "name": "heaphone1",
       "price": 2200,
       "off": 10,
@@ -9,6 +10,7 @@
     },
     {
       "id": 2,
+      "brand": "apple",
       "name": "heaphone2",
       "price": 3200,
       "off": 10,
@@ -16,6 +18,7 @@
     },
     {
       "id": 3,
+      "brand": "apple",
       "name": "heaphone3",
       "price": 4200,
       "off": 10,
@@ -23,6 +26,7 @@
     },
     {
       "id": 4,
+      "brand": "apple",
       "name": "heaphone4",
       "price": 5200,
       "off": 10,
@@ -30,6 +34,7 @@
     },
     {
       "id": 5,
+      "brand": "apple",
       "name": "heaphone1",
       "price": 2200,
       "off": 10,
@@ -37,6 +42,7 @@
     },
     {
       "id": 6,
+      "brand": "apple",
       "name": "heaphone2",
       "price": 3200,
       "off": 10,
@@ -44,6 +50,7 @@
     },
     {
       "id": 7,
+      "brand": "apple",
       "name": "heaphone3",
       "price": 4200,
       "off": 10,
@@ -51,6 +58,7 @@
     },
     {
       "id": 8,
+      "brand": "apple",
       "name": "heaphone4",
       "price": 5200,
       "off": 10,
@@ -58,6 +66,7 @@
     },
     {
       "id": 9,
+      "brand": "apple",
       "name": "heaphone4",
       "price": 5200,
       "off": 10,
@@ -65,6 +74,7 @@
     },
     {
       "id": 10,
+      "brand": "apple",
       "name": "heaphone4",
       "price": 5200,
       "off": 10,
@@ -72,6 +82,7 @@
     },
     {
       "id": 11,
+      "brand": "apple",
       "name": "heaphone4",
       "price": 5200,
       "off": 10,
@@ -79,13 +90,15 @@
     },
     {
       "id": 12,
+      "brand": "apple",
       "name": "heaphone4",
       "price": 5200,
       "off": 10,
       "url": "https://dkstatics-public.digikala.com/digikala-products/c3452958c621a9416ab30b19892a4fef9c0d7ca5_1602946320.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80"
     },
     {
-      "id": 8,
+      "id": 13,
+      "brand": "apple",
       "name": "heaphone4",
       "price": 5200,
       "off": 10,
@@ -184,7 +197,7 @@
     },
     {
       "id": 2,
-      "brand": "sums",
+      "brand": "samsung",
       "wireless": 1,
       "off": 15,
       "star": 2,
@@ -217,7 +230,7 @@
     },
     {
       "id": 5,
-      "brand": "sums",
+      "brand": "samsung",
       "wireless": 1,
       "off": 5,
       "star": 4,
@@ -228,7 +241,7 @@
     },
     {
       "id": 6,
-      "brand": "",
+      "brand": "samsung",
       "wireless": 1,
       "off": 0,
       "star": 2,
@@ -239,7 +252,7 @@
     },
     {
       "id": 7,
-      "brand": "",
+      "brand": "samsung",
       "wireless": 1,
       "off": 40,
       "star": 5,
@@ -250,7 +263,7 @@
     },
     {
       "id": 8,
-      "brand": "",
+      "brand": "samsung",
       "wireless": 1,
       "off": 0,
       "star": 4,
@@ -261,7 +274,7 @@
     },
     {
       "id": 9,
-      "brand": "",
+      "brand": "samsung",
       "wireless": 1,
       "off": 51,
       "star": 3,
@@ -272,7 +285,7 @@
     },
     {
       "id": 10,
-      "brand": "",
+      "brand": "samsung",
       "wireless": 1,
       "off": 12,
       "star": 5,
@@ -283,7 +296,7 @@
     },
     {
       "id": 11,
-      "brand": "",
+      "brand": "samsung",
       "wireless": 1,
       "off": 22,
       "star": 4,
@@ -294,7 +307,7 @@
     },
     {
       "id": 12,
-      "brand": "",
+      "brand": "samsung",
       "wireless": 1,
       "off": 55,
       "star": 5,

@@ -1,11 +1,17 @@
 import { toFarsiNumber, replace } from "../../utils/index";
+import { useRouter } from "next/navigation";
 
 const SuggestItem = ({ data }) => {
+  const router = useRouter();
+  const goToDetailsPage = () => {
+    router.push(`/headphones/${data.brand}/${data.id}`);
+  };
+
   return (
-    <div className="bg-white h-full ">
+    <div onClick={goToDetailsPage} className="bg-white h-full cursor-pointer">
       <div className="h-full flex flex-col justify-around">
         <div className="w-full justify_center ">
-          <img className="w-[135px] object-cover" src={data.url} alt="" />
+          <img className="w-[135px] object-cover" src={data.path} alt="" />
         </div>
 
         <div className="bg-white mt-2 px-2">

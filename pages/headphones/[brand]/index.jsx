@@ -50,13 +50,13 @@ const headphones = ({ parsedData }) => {
   return (
     <>
       <Layout title="هدفن‌ها">
-        <div className="container mx-auto mt-10 border-b-2 pb-2 flex items-center gap-5">
-          <div className="flex gap-1 items-center">
+        <div className="container mx-auto mt-10 border-b-2 pb-2 flex items-center justify-center sm:justify-start gap-1 sm:gap-5 sm:px-0 px-2">
+          <div className="gap-1 items-center sm:flex hidden">
             <MdOutlineSort className="text-xl" />
-            <span className="font-bold">مرتب‌سازی:</span>
+            <span className="font-bold sm:text-lg text-sm ">مرتب‌سازی:</span>
           </div>
 
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-4 text-sm ">
             <span onClick={() => setGategory("all")} className="cursor-pointer">
               همه محصولات
             </span>

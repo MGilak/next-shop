@@ -16,36 +16,38 @@ export default function Home({ parsedData }) {
             <Slider data={parsedData.bannersHeader} />
           </div>
 
-          <div className="px-4 sm:px-0 suggestSlider container mx-auto  mt-12 flex">
-            <div className="w-56 p-6 flex flex-col items-center">
-              <div>
-                <img
-                  className="w-20"
-                  src="https://www.digikala.com/statics/img/svg/specialCarousel/Amazings.svg"
-                  alt=""
-                />
-              </div>
+          <div className="container mx-auto mt-12 px-4 sm:px-0">
+            <div className=" suggestSlider  flex">
+              <div className="w-56 p-6 flex flex-col items-center">
+                <div>
+                  <img
+                    className="w-20"
+                    src="https://www.digikala.com/statics/img/svg/specialCarousel/Amazings.svg"
+                    alt=""
+                  />
+                </div>
 
-              <div>
-                <img
-                  src="https://www.digikala.com/statics/img/png/specialCarousel/box.webp"
-                  alt=""
-                />
-              </div>
+                <div>
+                  <img
+                    src="https://www.digikala.com/statics/img/png/specialCarousel/box.webp"
+                    alt=""
+                  />
+                </div>
 
-              <div>
-                <Link
-                  href="/"
-                  className="text-white text-sm font-bold flex items-center"
-                >
-                  <span> مشاهده همه</span>
-                  <span>
-                    <MdOutlineKeyboardArrowLeft className=" text-lg font-bold" />
-                  </span>
-                </Link>
+                <div>
+                  <Link
+                    href="/"
+                    className="text-white text-sm font-bold flex items-center"
+                  >
+                    <span> مشاهده همه</span>
+                    <span>
+                      <MdOutlineKeyboardArrowLeft className=" text-lg font-bold" />
+                    </span>
+                  </Link>
+                </div>
               </div>
+              <Suggestion data={parsedData.headphones} />
             </div>
-            <Suggestion data={parsedData.suggestions} />
           </div>
 
           <Grouping data={parsedData.grouping} />
