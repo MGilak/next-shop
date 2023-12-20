@@ -5,7 +5,7 @@ const HeadphoneItem = ({ data }) => {
   const router = useRouter();
 
   const goToDetailsPage = () => {
-    router.push(`/headphones/${data.id}`);
+    router.push(`/headphones/${data.brand}/${data.id}`);
   };
 
   // const finalPrice = (price) => {

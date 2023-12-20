@@ -3,6 +3,7 @@ import useStore from "../store/cart";
 import Link from "next/link";
 import { finalPrice, toFarsiNumber, replace } from "../utils";
 import { toast } from "react-toastify";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 // import { useSession } from "next-auth/react";
 // import { redirect } from "next/navigation";
@@ -71,21 +72,32 @@ const Cart = () => {
                       <div className="flex lg:gap-2 items-center">
                         <span
                           onClick={() => increase(item)}
-                          className="text-2xl select-none cursor-pointer border-[1px] border-green-500 w-7 h-7 lg:w-8 lg:h-8 justify_center rounded-lg hover:bg-white bg-green-600 text-white hover:text-black my_transition"
+                          className="text-2xl dark:text-white select-none cursor-pointer border-2 hover:border-green-500 w-7 h-7 lg:w-8 lg:h-8 justify_center rounded-lg hover:text-black my_transition"
                         >
                           +
                         </span>
+
                         <span
                           className="w-12 h-10 border-0 outline-none ring-0 text-center justify_center pt-1 font-bold"
                           type="number"
                         >
                           {item.qnt}
                         </span>
-                        <span
-                          onClick={() => decreaseItem(item)}
-                          className="text-2xl select-none cursor-pointer border-[1px] border-red-400  w-7 h-7 lg:w-8 lg:h-8 justify_center rounded-lg hover:bg-white bg-red-600 text-white hover:text-black my_transition"
-                        >
-                          -
+
+                        <span>
+                          {item.qnt === 1 ? (
+                            <RiDeleteBinLine
+                              onClick={() => decreaseItem(item)}
+                              className="text-2xl text-red-400 cursor-pointer"
+                            />
+                          ) : (
+                            <span
+                              onClick={() => decreaseItem(item)}
+                              className="text-2xl dark:text-white select-none cursor-pointer border-2 hover:border-red-400  w-7 h-7 lg:w-8 lg:h-8 justify_center rounded-lg my_transition"
+                            >
+                              -
+                            </span>
+                          )}
                         </span>
                       </div>
 

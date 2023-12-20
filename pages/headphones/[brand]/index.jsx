@@ -1,42 +1,55 @@
 import { useEffect, useState } from "react";
-import Layout from "../../components/Layout";
-// import Breadcrumb from "../../components/breadcrumb";
-import HeadphoneItem from "../../components/headphoneItem";
-``
+import Layout from "../../../components/Layout";
+import HeadphoneItem from "../../../components/headphoneItem";
+
 import { MdOutlineSort } from "react-icons/md";
 import path from "path";
 import fs from "fs";
+import { useRouter } from "next/router";
 
 const headphones = ({ parsedData }) => {
   const [product, setProduct] = useState([]);
+  const [category, setGategory] = useState(null);
 
-  const [category, setGategory] = useState("all");
+  const route = useRouter();
+
+  const filterByBrand = () => {
+    if (route.query.brand === "all") {
+      return parsedData;
+      // setProduct(parsedData);
+    } else {
+      const filteredProducts = parsedData.filter(
+        (p) => p.brand === route.query.brand
+      );
+      return filteredProducts;
+    }
+  };
 
   useEffect(() => {
-    switch (category) {
-      case "popular": {
-        const filtered = parsedData.filter((item) => item.star > 3);
-        setProduct(filtered);
-        break;
-      }
+    setProduct(filterByBrand());
+  }, [route.query]);
 
-      case "best": {
-        const filtered = parsedData.filter((item) => item.bestSeller);
-        setProduct(filtered);
-        break;
-      }
+  useEffect(() => {
+    if (category === "popular") {
+      const data = filterByBrand();
+      const filtered = data.filter((item) => item.star > 3);
+      setProduct(filtered);
+    }
 
-      default:
-        setProduct(parsedData);
-        break;
+    if (category === "best") {
+      const data = filterByBrand();
+      const filtered = data.filter((item) => item.bestSeller);
+      setProduct(filtered);
+    }
+
+    if (category === "all") {
+      setProduct(filterByBrand());
     }
   }, [category]);
 
   return (
     <>
       <Layout title="هدفن‌ها">
-        {/* <Breadcrumb /> */}
-
         <div className="container mx-auto mt-10 border-b-2 pb-2 flex items-center gap-5">
           <div className="flex gap-1 items-center">
             <MdOutlineSort className="text-xl" />
@@ -73,6 +86,13 @@ const headphones = ({ parsedData }) => {
 };
 
 export default headphones;
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+};
 
 export async function getStaticProps() {
   const dbPath = path.join(process.cwd(), "data", "db.json");

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Layout from "../../components/Layout";
-import useStore from "../../store/cart";
+import Layout from "../../../components/Layout";
+import useStore from "../../../store/cart";
 import { useParams } from "next/navigation";
-import { toFarsiNumber, replace } from "../../utils";
+import { toFarsiNumber, replace } from "../../../utils";
 import { toast } from "react-toastify";
 import path from "path";
 import fs from "fs";

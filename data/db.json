@@ -173,6 +173,8 @@
   "headphones": [
     {
       "id": 1,
+      "brand": "shi",
+      "wireless": 1,
       "off": 10,
       "star": 3,
       "path": "/images/headphones/1.webp",
@@ -182,6 +184,8 @@
     },
     {
       "id": 2,
+      "brand": "sums",
+      "wireless": 1,
       "off": 15,
       "star": 2,
       "path": "/images/headphones/2.webp",
@@ -191,6 +195,8 @@
     },
     {
       "id": 3,
+      "brand": "apple",
+      "wireless": 1,
       "off": 0,
       "star": 5,
       "path": "/images/headphones/3.webp",
@@ -200,6 +206,8 @@
     },
     {
       "id": 4,
+      "brand": "shi",
+      "wireless": 1,
       "off": 25,
       "star": 3,
       "path": "/images/headphones/4.webp",
@@ -209,6 +217,8 @@
     },
     {
       "id": 5,
+      "brand": "sums",
+      "wireless": 1,
       "off": 5,
       "star": 4,
       "path": "/images/headphones/5.webp",
@@ -218,6 +228,8 @@
     },
     {
       "id": 6,
+      "brand": "",
+      "wireless": 1,
       "off": 0,
       "star": 2,
       "path": "/images/headphones/6.webp",
@@ -227,6 +239,8 @@
     },
     {
       "id": 7,
+      "brand": "",
+      "wireless": 1,
       "off": 40,
       "star": 5,
       "path": "/images/headphones/7.webp",
@@ -236,6 +250,8 @@
     },
     {
       "id": 8,
+      "brand": "",
+      "wireless": 1,
       "off": 0,
       "star": 4,
       "path": "/images/headphones/8.webp",
@@ -245,6 +261,8 @@
     },
     {
       "id": 9,
+      "brand": "",
+      "wireless": 1,
       "off": 51,
       "star": 3,
       "path": "/images/headphones/3.webp",
@@ -254,6 +272,8 @@
     },
     {
       "id": 10,
+      "brand": "",
+      "wireless": 1,
       "off": 12,
       "star": 5,
       "path": "/images/headphones/6.webp",
@@ -263,6 +283,8 @@
     },
     {
       "id": 11,
+      "brand": "",
+      "wireless": 1,
       "off": 22,
       "star": 4,
       "path": "/images/headphones/7.webp",
@@ -272,12 +294,135 @@
     },
     {
       "id": 12,
+      "brand": "",
+      "wireless": 1,
       "off": 55,
       "star": 5,
       "path": "/images/headphones/8.webp",
       "price": 610000,
       "bestSeller": 1,
       "name": "هدفون بلوتوثی انکر مدل SoundCore R50i A3949"
+    },
+    {
+      "id": 13,
+      "brand": "apple",
+      "wireless": 1,
+      "off": 7,
+      "star": 4,
+      "path": "/images/headphones/apple/1.webp",
+      "price": 10149000,
+      "bestSeller": 1,
+      "name": "هدفون بلوتوثی اپل مدل AirPods Pro 2nd Generation"
+    },
+    {
+      "id": 14,
+      "brand": "apple",
+      "wireless": 1,
+      "off": 0,
+      "star": 4,
+      "path": "/images/headphones/apple/2.webp",
+      "price": 28170000,
+      "bestSeller": 1,
+      "name": "هدفون بلوتوثی اپل مدل AirPods Max"
+    },
+    {
+      "id": 15,
+      "brand": "apple",
+      "wireless": 0,
+      "off": 0,
+      "star": 5,
+      "path": "/images/headphones/apple/3.webp",
+      "price": 28170000,
+      "bestSeller": 1,
+      "name": "هندزفری اوریجینال اپل با کنترل و میکروفون"
+    },
+    {
+      "id": 16,
+      "brand": "apple",
+      "wireless": 0,
+      "off": 0,
+      "star": 2,
+      "path": "/images/headphones/apple/4.webp",
+      "price": 1170000,
+      "bestSeller": 0,
+      "name": "هدفون اورجینال اپل مخصوص iPad، iPhone، iPod"
+    },
+    {
+      "id": 17,
+      "brand": "apple",
+      "wireless": 0,
+      "off": 0,
+      "star": 4,
+      "path": "/images/headphones/apple/4.webp",
+      "price": 1490000,
+      "bestSeller": 0,
+      "name": "هدفون اپل مدل EarPods با کانکتور لایتنینگ"
+    },
+    {
+      "id": 18,
+      "brand": "bits",
+      "wireless": 1,
+      "off": 0,
+      "star": 4,
+      "path": "/images/headphones/bits/1.webp",
+      "price": 7099000,
+      "bestSeller": 1,
+      "name": "هدفون بلوتوثی بیتس مدل Fit Pro"
+    },
+    {
+      "id": 19,
+      "brand": "bits",
+      "wireless": 1,
+      "off": 12,
+      "star": 4,
+      "path": "/images/headphones/bits/2.webp",
+      "price": 5840000,
+      "bestSeller": 1,
+      "name": "هدفون بلوتوثی بیتس مدل STUDIO BUDS"
+    },
+    {
+      "id": 20,
+      "brand": "bits",
+      "wireless": 0,
+      "off": 0,
+      "star": 3,
+      "path": "/images/headphones/bits/3.webp",
+      "price": 1490000,
+      "bestSeller": 0,
+      "name": "هدفون بی سیم بیتس  مدل Studio 3"
+    },
+    {
+      "id": 21,
+      "brand": "sony",
+      "wireless": 1,
+      "off": 0,
+      "star": 4,
+      "path": "/images/headphones/sony/1.webp",
+      "price": 15620000,
+      "bestSeller": 1,
+      "name": "هدفون اپل مدل EarPods با کانکتور لایتنینگ"
+    },
+    {
+      "id": 22,
+      "brand": "sony",
+      "wireless": 1,
+      "off": 2,
+      "star": 4,
+      "path": "/images/headphones/sony/2.webp",
+      "price": 12348000,
+      "bestSeller": 0,
+      "name": "هدفون بلوتوثی سونی مدل WF-1000XM4"
+    },
+    {
+      "id": 23,
+      "brand": "sony",
+      "wireless": 0,
+      "off": 0,
+      "star": 4,
+      "path": "/images/headphones/sony/3.webp",
+      "price": 110000,
+      "bestSeller": 0,
+      "name": "هدفون سونی مدل MDR-XB450AP"
     }
   ],
   "megamenu": [
